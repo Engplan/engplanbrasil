@@ -8,12 +8,13 @@
 </head>
 <body>
   <section class="login-container">
-    <h2>Acompanhe sua Obra</h2>
+    <h2>🔐 Acesso ao Painel da Obra</h2>
     <form id="loginForm">
-      <input type="text" id="cpfOuCodigo" placeholder="Digite seu CPF ou Código da Obra" required />
+      <label for="cpf">CPF ou Código da Obra:</label>
+      <input type="text" id="cpf" name="cpf" required />
       <button type="submit">Entrar</button>
+      <p id="erro" class="erro-msg"></p>
     </form>
-    <p id="erro" style="color:red; display:none;">CPF ou Código não encontrado.</p>
   </section>
 
   <script>
@@ -22,21 +23,20 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const input = document.getElementById('cpfOuCodigo').value.trim();
+      const cpf = document.getElementById('cpf').value.trim();
 
       try {
-        const res = await fetch(`https://sheetdb.io/api/v1/trovsa4pykn7a/search_or?cpf=${input}&codigo=${input}`);
+        const res = await fetch(`https://sheetdb.io/api/v1/trovsa4pykn7a/search?cpf=${cpf}`);
         const data = await res.json();
 
-        if (data.length > 0) {
+        if (data.length === 0) {
+          erro.textContent = 'CPF ou código não encontrado.';
+        } else {
           localStorage.setItem('dadosCliente', JSON.stringify(data[0]));
           window.location.href = 'painel.html';
-        } else {
-          erro.style.display = 'block';
         }
-      } catch (error) {
-        console.error('Erro na autenticação:', error);
-        erro.style.display = 'block';
+      } catch (err) {
+        erro.textContent = 'Erro na conexão. Tente novamente.';
       }
     });
   </script>
