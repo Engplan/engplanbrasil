@@ -5,16 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Painel do Cliente - ENGPLAN</title>
   <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <section class="painel-container">
     <h2>Olá, <span id="nomeCliente"></span>!</h2>
-    <p><strong>Progresso da obra:</strong> <span id="progresso"></span></p>
+    <p><strong>Progresso geral da obra:</strong> <span id="progresso"></span></p>
     <p><strong>Mensagem da equipe:</strong> <span id="mensagem"></span></p>
+
+    <h3>Status das Etapas</h3>
+    <canvas id="graficoEtapas" width="400" height="200"></canvas>
 
     <div class="imagens-obra">
       <img id="imagem1" alt="Imagem 1 da obra" style="max-width: 100%; margin: 10px 0;" />
       <img id="imagem2" alt="Imagem 2 da obra" style="max-width: 100%; margin: 10px 0;" />
+    </div>
+
+    <div id="documentos">
+      <h3>Documentos da Obra</h3>
+      <a id="pdfContrato" href="#" target="_blank">📄 Visualizar Contrato</a>
     </div>
 
     <a href="login.html" class="btn-sair">Sair</a>
@@ -22,7 +31,6 @@
 
   <script>
     const dados = JSON.parse(localStorage.getItem('dadosCliente'));
-
     if (!dados) {
       window.location.href = 'login.html';
     } else {
@@ -31,6 +39,34 @@
       document.getElementById('mensagem').textContent = dados.mensagem || 'Nenhuma mensagem.';
       document.getElementById('imagem1').src = dados.imagem1 || '';
       document.getElementById('imagem2').src = dados.imagem2 || '';
+      document.getElementById('pdfContrato').href = dados.pdf_contrato || '#';
+
+      // Gráfico das etapas
+      const ctx = document.getElementById('graficoEtapas').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Fundação', 'Alvenaria', 'Elétrica', 'Pintura'],
+          datasets: [{
+            label: '% concluído',
+            data: [
+              parseInt(dados.fundacao || 0),
+              parseInt(dados.alvenaria || 0),
+              parseInt(dados.eletrica || 0),
+              parseInt(dados.pintura || 0)
+            ],
+            backgroundColor: ['#ffa500', '#ff9900', '#ffb84d', '#ffc966']
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100
+            }
+          }
+        }
+      });
     }
   </script>
 </body>
