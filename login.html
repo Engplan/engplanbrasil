@@ -1,70 +1,31 @@
-!DOCTYPE html
-html lang=pt-BR
-head
-  meta charset=UTF-8 
-  meta name=viewport content=width=device-width, initial-scale=1.0
-  titleLogin - Acompanhar Obratitle
-  link rel=stylesheet href=style.css
-  style
-    .login-container {
-      max-width 400px;
-      margin 100px auto;
-      padding 30px;
-      background #fff;
-      border-radius 10px;
-      box-shadow 0 4px 10px rgba(0,0,0,0.1);
-      text-align center;
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - ENGPLAN BRASIL</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <section class="login-container">
+    <h2>Acesso à Obra</h2>
+    <form id="loginForm">
+      <label for="codigo">CPF ou Código da Obra:</label>
+      <input type="text" id="codigo" name="codigo" required placeholder="Digite seu CPF ou Código" />
+      <button type="submit">Entrar</button>
+    </form>
+  </section>
 
-    .login-container h2 {
-      margin-bottom 20px;
-      color #333;
-    }
-
-    .login-container input {
-      width 100%;
-      padding 12px;
-      margin-bottom 20px;
-      border 1px solid #ddd;
-      border-radius 8px;
-    }
-
-    .login-container button {
-      background-color #f58220;
-      color #fff;
-      border none;
-      padding 12px 20px;
-      border-radius 8px;
-      cursor pointer;
-    }
-
-    .login-container buttonhover {
-      background-color #d46c12;
-    }
-  style
-head
-body
-
-  div class=login-container
-    h2Digite seu CPF ou código da obrah2
-    input type=text id=codigo placeholder=CPF ou código da obra
-    button onclick=verificarCodigo()Entrarbutton
-  div
-
-  script
-    function verificarCodigo() {
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
       const codigo = document.getElementById('codigo').value.trim();
-
-       Aqui você pode trocar pelos códigos reais permitidos
-      const codigosPermitidos = [12345678900, ENG123, OBRA2025];
-
-      if (codigosPermitidos.includes(codigo)) {
-        window.location.href = painel.html;  ou a página de acompanhamento real
+      if (codigo) {
+        window.location.href = 'painel.html';
       } else {
-        alert(Código inválido. Tente novamente.);
+        alert('Por favor, insira seu CPF ou Código da Obra.');
       }
-    }
-  script
-
-body
-html
+    });
+  </script>
+</body>
+</html>
