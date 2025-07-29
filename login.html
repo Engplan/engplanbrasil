@@ -1,28 +1,70 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Engplan</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header class="video-banner">
-    <video autoplay muted loop playsinline class="video-banner__video">
-      <source src="videos/institucional.mp4" type="video/mp4">
-      Seu navegador não suporta o vídeo.
-    </video>
-    <div class="video-banner__overlay">
-      <h1>Acesso ao Painel</h1>
-    </div>
-  </header>
+!DOCTYPE html
+html lang=pt-BR
+head
+  meta charset=UTF-8 
+  meta name=viewport content=width=device-width, initial-scale=1.0
+  titleLogin - Acompanhar Obratitle
+  link rel=stylesheet href=style.css
+  style
+    .login-container {
+      max-width 400px;
+      margin 100px auto;
+      padding 30px;
+      background #fff;
+      border-radius 10px;
+      box-shadow 0 4px 10px rgba(0,0,0,0.1);
+      text-align center;
+    }
 
-  <section style="max-width: 400px; margin: auto; padding: 40px 20px;">
-    <form action="painel.html" method="POST">
-      <input type="text" name="usuario" placeholder="Usuário" required>
-      <input type="password" name="senha" placeholder="Senha" required>
-      <button type="submit">Entrar</button>
-    </form>
-  </section>
-</body>
-</html>
+    .login-container h2 {
+      margin-bottom 20px;
+      color #333;
+    }
+
+    .login-container input {
+      width 100%;
+      padding 12px;
+      margin-bottom 20px;
+      border 1px solid #ddd;
+      border-radius 8px;
+    }
+
+    .login-container button {
+      background-color #f58220;
+      color #fff;
+      border none;
+      padding 12px 20px;
+      border-radius 8px;
+      cursor pointer;
+    }
+
+    .login-container buttonhover {
+      background-color #d46c12;
+    }
+  style
+head
+body
+
+  div class=login-container
+    h2Digite seu CPF ou código da obrah2
+    input type=text id=codigo placeholder=CPF ou código da obra
+    button onclick=verificarCodigo()Entrarbutton
+  div
+
+  script
+    function verificarCodigo() {
+      const codigo = document.getElementById('codigo').value.trim();
+
+       Aqui você pode trocar pelos códigos reais permitidos
+      const codigosPermitidos = [12345678900, ENG123, OBRA2025];
+
+      if (codigosPermitidos.includes(codigo)) {
+        window.location.href = painel.html;  ou a página de acompanhamento real
+      } else {
+        alert(Código inválido. Tente novamente.);
+      }
+    }
+  script
+
+body
+html
