@@ -3,63 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Painel de Acompanhamento - Engplan</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Painel do Cliente - ENGPLAN</title>
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-  <header class="video-banner">
-    <video autoplay muted loop playsinline class="video-banner__video">
-      <source src="videos/institucional.mp4" type="video/mp4" />
-      Seu navegador não suporta o vídeo.
-    </video>
-    <div class="video-banner__overlay">
-      <h1>Painel de Obras</h1>
-      <p>Acompanhe em tempo real os projetos da Engplan Brasil</p>
-    </div>
-  </header>
+  <section class="painel-container">
+    <h2>Olá, <span id="nomeCliente"></span>!</h2>
+    <p><strong>Progresso da obra:</strong> <span id="progresso"></span></p>
+    <p><strong>Mensagem da equipe:</strong> <span id="mensagem"></span></p>
 
-  <main class="painel">
-    <div class="filtros">
-      <label for="filtro-status">Filtrar por status:</label>
-      <select id="filtro-status" onchange="filtrarObras()">
-        <option value="todos">Todos</option>
-        <option value="andamento">Em Andamento</option>
-        <option value="concluido">Concluído</option>
-      </select>
+    <div class="imagens-obra">
+      <img id="imagem1" alt="Imagem 1 da obra" style="max-width: 100%; margin: 10px 0;" />
+      <img id="imagem2" alt="Imagem 2 da obra" style="max-width: 100%; margin: 10px 0;" />
     </div>
 
-    <div class="cards-obras" id="lista-obras">
-      <div class="card-obra" data-status="andamento">
-        <h3>Residência Fluminense</h3>
-        <p>Status: <strong>Em Andamento</strong></p>
-        <p>Responsável: Eng. Lucas Alves</p>
-        <div class="progresso">
-          <div class="barra" style="width: 60%;"></div>
-        </div>
-      </div>
-
-      <div class="card-obra" data-status="concluido">
-        <h3>Consultório Médico Zona Sul</h3>
-        <p>Status: <strong>Concluído</strong></p>
-        <p>Responsável: Eng. Ana Souza</p>
-        <div class="progresso">
-          <div class="barra" style="width: 100%; background-color: #4caf50;"></div>
-        </div>
-      </div>
-    </div>
-  </main>
+    <a href="login.html" class="btn-sair">Sair</a>
+  </section>
 
   <script>
-    function filtrarObras() {
-      const filtro = document.getElementById('filtro-status').value;
-      const cards = document.querySelectorAll('.card-obra');
-      cards.forEach(card => {
-        if (filtro === 'todos' || card.dataset.status === filtro) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+    const dados = JSON.parse(localStorage.getItem('dadosCliente'));
+
+    if (!dados) {
+      window.location.href = 'login.html';
+    } else {
+      document.getElementById('nomeCliente').textContent = dados.nome || 'Cliente';
+      document.getElementById('progresso').textContent = dados.progresso || 'Indefinido';
+      document.getElementById('mensagem').textContent = dados.mensagem || 'Nenhuma mensagem.';
+      document.getElementById('imagem1').src = dados.imagem1 || '';
+      document.getElementById('imagem2').src = dados.imagem2 || '';
     }
   </script>
 </body>

@@ -8,22 +8,35 @@
 </head>
 <body>
   <section class="login-container">
-    <h2>Acesso à Obra</h2>
+    <h2>Acompanhe sua Obra</h2>
     <form id="loginForm">
-      <label for="codigo">CPF ou Código da Obra:</label>
-      <input type="text" id="codigo" name="codigo" required placeholder="Digite seu CPF ou Código" />
+      <input type="text" id="cpfOuCodigo" placeholder="Digite seu CPF ou Código da Obra" required />
       <button type="submit">Entrar</button>
     </form>
+    <p id="erro" style="color:red; display:none;">CPF ou Código não encontrado.</p>
   </section>
 
   <script>
-    document.getElementById('loginForm').addEventListener('submit', function (e) {
+    const form = document.getElementById('loginForm');
+    const erro = document.getElementById('erro');
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const codigo = document.getElementById('codigo').value.trim();
-      if (codigo) {
-        window.location.href = 'painel.html';
-      } else {
-        alert('Por favor, insira seu CPF ou Código da Obra.');
+      const input = document.getElementById('cpfOuCodigo').value.trim();
+
+      try {
+        const res = await fetch(`https://sheetdb.io/api/v1/trovsa4pykn7a/search_or?cpf=${input}&codigo=${input}`);
+        const data = await res.json();
+
+        if (data.length > 0) {
+          localStorage.setItem('dadosCliente', JSON.stringify(data[0]));
+          window.location.href = 'painel.html';
+        } else {
+          erro.style.display = 'block';
+        }
+      } catch (error) {
+        console.error('Erro na autenticação:', error);
+        erro.style.display = 'block';
       }
     });
   </script>
