@@ -47,31 +47,6 @@
       color: #0066cc;
     }
 
-    /* Linha do tempo */
-    #linhaTempoContainer {
-      margin-top: 30px;
-    }
-    .linha-tempo {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 10px;
-      border-left: 3px solid #ffa500;
-    }
-    .linha-tempo li {
-      position: relative;
-      padding: 10px 15px;
-      margin-bottom: 8px;
-      background: #fff8ec;
-      border-radius: 5px;
-      box-shadow: 0 0 4px rgba(0,0,0,0.1);
-    }
-    .linha-tempo li::before {
-      content: "📍";
-      position: absolute;
-      left: -20px;
-      top: 10px;
-    }
-
     @media (max-width: 600px) {
       .container {
         padding: 15px;
@@ -98,11 +73,6 @@
     <p>
       📄 <a id="linkContrato" href="#" target="_blank">Clique aqui para visualizar seu contrato</a>
     </p>
-
-    <div id="linhaTempoContainer">
-      <h3>📅 Linha do Tempo da Obra</h3>
-      <ul id="linhaTempo" class="linha-tempo"></ul>
-    </div>
   </div>
 
   <script>
@@ -136,23 +106,4 @@
         document.getElementById('imagem2').src = dados.imagem2 || "";
 
         // Link do contrato
-        document.getElementById('linkContrato').href = dados.contrato || "#";
-
-        // Linha do tempo
-        const linhaTempo = document.getElementById('linhaTempo');
-        if (dados.linha_tempo) {
-          const eventos = dados.linha_tempo.split('|');
-          eventos.forEach(evento => {
-            const item = document.createElement('li');
-            item.textContent = evento.trim();
-            linhaTempo.appendChild(item);
-          });
-        }
-      })
-      .catch(err => {
-        console.error(err);
-        alert("Erro ao carregar dados.");
-      });
-  </script>
-</body>
-</html>
+        document.getElementById('linkCon
