@@ -1,165 +1,103 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
   <title>Painel do Cliente - ENGPLAN</title>
-  <link rel="stylesheet" href="css/style.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    .upload-section {
-      margin-top: 25px;
-      padding: 15px;
-      background: #fff8f0;
-      border-radius: 8px;
-      border: 1px solid #ffe0c8;
-    }
-    #statusUpload img {
-      margin-top: 10px;
-      border-radius: 6px;
-      max-width: 100%;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <section class="painel-container">
-    <h2>Olá, <span id="nomeCliente"></span>!</h2>
-    <p><strong>Progresso geral da obra:</strong> <span id="progresso"></span></p>
-    <p><strong>Mensagem da equipe:</strong> <span id="mensagem"></span></p>
+    <h2>Olá, <span id="nomeCliente">Cliente</span>!</h2>
 
-    <h3>Status das Etapas</h3>
-    <canvas id="graficoEtapas" width="400" height="200"></canvas>
+    <!-- Botão para tirar foto -->
+    <label for="fileInput" style="cursor:pointer; color:blue; text-decoration:underline;">
+      Tirar foto da obra
+    </label>
+    <input type="file" id="fileInput" accept="image/*" capture="environment" style="display:none" />
 
-    <div class="imagens-obra">
-      <img id="imagem1" alt="Imagem 1 da obra" style="max-width: 100%; margin: 10px 0;" />
-      <img id="imagem2" alt="Imagem 2 da obra" style="max-width: 100%; margin: 10px 0;" />
-    </div>
+    <p id="statusUpload"></p>
 
-    <div id="documentos">
-      <h3>Documentos da Obra</h3>
-      <a id="pdfContrato" href="#" target="_blank">📄 Visualizar Contrato</a>
-    </div>
-
-    <!-- Nova seção de captura/upload -->
-    <div class="upload-section">
-      <h3>📷 Enviar foto da obra</h3>
-      <input type="file" accept="image/*" capture="environment" id="inputFoto" />
-      <p id="statusUpload">Nenhuma foto enviada ainda.</p>
-      <div id="previewFoto"></div>
-    </div>
+    <!-- Imagem preview da foto -->
+    <img id="previewImagem" alt="Preview da foto" style="max-width: 100%; margin-top: 10px; display:none;" />
 
     <a href="login.html" class="btn-sair">Sair</a>
   </section>
 
-  <!-- Firebase SDK modular -->
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
-    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-storage.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-storage.js";
 
-    // ====== SUBSTITUA PELOS SEUS VALORES DO FIREBASE ======
+    // Configuração Firebase
     const firebaseConfig = {
-      apiKey: "SEU_API_KEY",
-      authDomain: "SEU_PROJETO.firebaseapp.com",
-      projectId: "SEU_PROJETO",
-      storageBucket: "SEU_PROJETO.appspot.com",
-      messagingSenderId: "SEU_SENDER_ID",
-      appId: "SEU_APP_ID"
+      apiKey: "AIzaSyCmpv_QRPrChh44M4nncycjD9UirgcnXoA",
+      authDomain: "engplan2025.firebaseapp.com",
+      projectId: "engplan2025",
+      storageBucket: "engplan2025.appspot.com",
+      messagingSenderId: "483035204189",
+      appId: "1:483035204189:web:7c2228c5836426ec65dbb4",
+      measurementId: "G-BXLF2NY7XT"
     };
-    // =====================================================
 
     const app = initializeApp(firebaseConfig);
     const storage = getStorage(app);
 
-    // Recupera dados do cliente
-    const dados = JSON.parse(localStorage.getItem('dadosCliente'));
-    if (!dados) {
-      window.location.href = 'login.html';
-    } else {
-      document.getElementById('nomeCliente').textContent = dados.nome || 'Cliente';
-      document.getElementById('progresso').textContent = dados.progresso || 'Indefinido';
-      document.getElementById('mensagem').textContent = dados.mensagem || 'Nenhuma mensagem.';
-      document.getElementById('imagem1').src = dados.imagem1 || '';
-      document.getElementById('imagem2').src = dados.imagem2 || '';
-      document.getElementById('pdfContrato').href = dados.pdf_contrato || '#';
+    const fileInput = document.getElementById('fileInput');
+    const statusUpload = document.getElementById('statusUpload');
+    const previewImagem = document.getElementById('previewImagem');
 
-      // Gráfico das etapas
-      const ctx = document.getElementById('graficoEtapas').getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Fundação', 'Alvenaria', 'Elétrica', 'Pintura'],
-          datasets: [{
-            label: '% concluído',
-            data: [
-              parseInt(dados.fundacao || 0),
-              parseInt(dados.alvenaria || 0),
-              parseInt(dados.eletrica || 0),
-              parseInt(dados.pintura || 0)
-            ],
-            backgroundColor: ['#ffa500', '#ff9900', '#ffb84d', '#ffc966']
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              max: 100
-            }
-          }
-        }
-      });
+    // Endpoint da sua planilha SheetDB
+    const sheetDBEndpoint = 'https://sheetdb.io/api/v1/trovsa4pykn7a';
+
+    // Exemplo: definindo código da obra no localStorage (você pode setar isso no login)
+    if (!localStorage.getItem('codigoObra')) {
+      localStorage.setItem('codigoObra', 'OBRA123'); // substitua por código real dinâmico
     }
 
-    // Upload de foto
-    const inputFoto = document.getElementById('inputFoto');
-    const statusUpload = document.getElementById('statusUpload');
-    const previewFoto = document.getElementById('previewFoto');
-
-    inputFoto.addEventListener('change', async () => {
-      if (!dados) return;
-      const file = inputFoto.files[0];
+    fileInput.addEventListener('change', async (event) => {
+      const file = event.target.files[0];
       if (!file) return;
+
+      previewImagem.src = URL.createObjectURL(file);
+      previewImagem.style.display = 'block';
+
       statusUpload.textContent = 'Enviando foto...';
 
       try {
-        // Gera nome único
-        const identificador = (dados.cpf || dados.codigo || 'cliente').toString().replace(/\D/g,'');
-        const nomeArquivo = `${identificador}_${Date.now()}.jpg`;
-        const storageRef = ref(storage, `fotos_obra/${nomeArquivo}`);
+        const nomeArquivo = `fotos_obra/${Date.now()}_${file.name}`;
+        const storageRef = ref(storage, nomeArquivo);
 
-        // Faz upload
         await uploadBytes(storageRef, file);
+        const urlFoto = await getDownloadURL(storageRef);
 
-        // Pega URL
-        const url = await getDownloadURL(storageRef);
+        statusUpload.textContent = 'Foto enviada com sucesso!';
 
-        // Atualiza planilha via SheetDB (coluna: foto_nova)
-        const payload = {
-          data: [
-            {
-              ...(dados.cpf ? { cpf: dados.cpf } : {}),
-              ...(dados.codigo ? { codigo: dados.codigo } : {}),
-              foto_nova: url
-            }
-          ]
+        const codigoObra = localStorage.getItem('codigoObra') || 'sem_codigo';
+
+        const dataToSend = {
+          data: {
+            codigo_obra: codigoObra,
+            url_foto: urlFoto,
+            data_envio: new Date().toISOString()
+          }
         };
 
-        // Atenção: a API da SheetDB requer que você use o endpoint correto para update.
-        // Aqui é uma tentativa genérica; se não funcionar, ajustamos conforme sua configuração.
-        await fetch('https://sheetdb.io/api/v1/trovsa4pykn7a', {
-          method: 'PATCH', // ou PUT dependendo da sua configuração
+        const response = await fetch(sheetDBEndpoint, {
+          method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body: JSON.stringify(dataToSend)
         });
 
-        statusUpload.textContent = '✅ Foto enviada com sucesso.';
-        previewFoto.innerHTML = '';
-        const imgPreview = document.createElement('img');
-        imgPreview.src = url;
-        previewFoto.appendChild(imgPreview);
-      } catch (err) {
-        console.error(err);
-        statusUpload.textContent = '❌ Erro no upload da foto.';
+        if (response.ok) {
+          console.log('URL da foto salvo na planilha');
+        } else {
+          console.error('Erro ao salvar na planilha', await response.text());
+          statusUpload.textContent = 'Foto enviada, mas falha ao salvar na planilha.';
+        }
+
+      } catch (error) {
+        console.error('Erro ao enviar foto:', error);
+        statusUpload.textContent = 'Erro ao enviar a foto. Tente novamente.';
       }
     });
   </script>
