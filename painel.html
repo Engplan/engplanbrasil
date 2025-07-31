@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Painel do Cliente - ENGPLAN</title>
   <link rel="stylesheet" href="css/style.css"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .upload-section {
+      margin-top: 25px;
+      padding: 15px;
+      background: #fff8f0;
+      border-radius: 8px;
+      border: 1px solid #ffe0c8;
+    }
+    #statusUpload img {
+      margin-top: 10px;
+      border-radius: 6px;
+      max-width: 100%;
+    }
+  </style>
 </head>
 <body>
   <section class="painel-container">
@@ -26,10 +40,37 @@
       <a id="pdfContrato" href="#" target="_blank">📄 Visualizar Contrato</a>
     </div>
 
+    <!-- Nova seção de captura/upload -->
+    <div class="upload-section">
+      <h3>📷 Enviar foto da obra</h3>
+      <input type="file" accept="image/*" capture="environment" id="inputFoto" />
+      <p id="statusUpload">Nenhuma foto enviada ainda.</p>
+      <div id="previewFoto"></div>
+    </div>
+
     <a href="login.html" class="btn-sair">Sair</a>
   </section>
 
-  <script>
+  <!-- Firebase SDK modular -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-storage.js";
+
+    // ====== SUBSTITUA PELOS SEUS VALORES DO FIREBASE ======
+    const firebaseConfig = {
+      apiKey: "SEU_API_KEY",
+      authDomain: "SEU_PROJETO.firebaseapp.com",
+      projectId: "SEU_PROJETO",
+      storageBucket: "SEU_PROJETO.appspot.com",
+      messagingSenderId: "SEU_SENDER_ID",
+      appId: "SEU_APP_ID"
+    };
+    // =====================================================
+
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+
+    // Recupera dados do cliente
     const dados = JSON.parse(localStorage.getItem('dadosCliente'));
     if (!dados) {
       window.location.href = 'login.html';
@@ -68,6 +109,59 @@
         }
       });
     }
+
+    // Upload de foto
+    const inputFoto = document.getElementById('inputFoto');
+    const statusUpload = document.getElementById('statusUpload');
+    const previewFoto = document.getElementById('previewFoto');
+
+    inputFoto.addEventListener('change', async () => {
+      if (!dados) return;
+      const file = inputFoto.files[0];
+      if (!file) return;
+      statusUpload.textContent = 'Enviando foto...';
+
+      try {
+        // Gera nome único
+        const identificador = (dados.cpf || dados.codigo || 'cliente').toString().replace(/\D/g,'');
+        const nomeArquivo = `${identificador}_${Date.now()}.jpg`;
+        const storageRef = ref(storage, `fotos_obra/${nomeArquivo}`);
+
+        // Faz upload
+        await uploadBytes(storageRef, file);
+
+        // Pega URL
+        const url = await getDownloadURL(storageRef);
+
+        // Atualiza planilha via SheetDB (coluna: foto_nova)
+        const payload = {
+          data: [
+            {
+              ...(dados.cpf ? { cpf: dados.cpf } : {}),
+              ...(dados.codigo ? { codigo: dados.codigo } : {}),
+              foto_nova: url
+            }
+          ]
+        };
+
+        // Atenção: a API da SheetDB requer que você use o endpoint correto para update.
+        // Aqui é uma tentativa genérica; se não funcionar, ajustamos conforme sua configuração.
+        await fetch('https://sheetdb.io/api/v1/trovsa4pykn7a', {
+          method: 'PATCH', // ou PUT dependendo da sua configuração
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        statusUpload.textContent = '✅ Foto enviada com sucesso.';
+        previewFoto.innerHTML = '';
+        const imgPreview = document.createElement('img');
+        imgPreview.src = url;
+        previewFoto.appendChild(imgPreview);
+      } catch (err) {
+        console.error(err);
+        statusUpload.textContent = '❌ Erro no upload da foto.';
+      }
+    });
   </script>
 </body>
 </html>

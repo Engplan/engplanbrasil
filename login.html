@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login - ENGPLAN BRASIL</title>
   <link rel="stylesheet" href="css/style.css"/>
@@ -11,7 +11,7 @@
     <h2>🔐 Acesso ao Painel da Obra</h2>
     <form id="loginForm">
       <label for="cpf">CPF ou Código da Obra:</label>
-      <input type="text" id="cpf" name="cpf" required />
+      <input type="text" id="cpf" name="cpf" required placeholder="Ex: 12345678900 ou 001-obra"/>
       <button type="submit">Entrar</button>
       <p id="erro" class="erro-msg"></p>
     </form>
@@ -23,19 +23,20 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const cpf = document.getElementById('cpf').value.trim();
+      const valor = document.getElementById('cpf').value.trim();
 
       try {
-        const res = await fetch(`https://sheetdb.io/api/v1/trovsa4pykn7a/search?cpf=${cpf}`);
+        const res = await fetch(`https://sheetdb.io/api/v1/trovsa4pykn7a/search_or?cpf=${encodeURIComponent(valor)}&codigo=${encodeURIComponent(valor)}`);
         const data = await res.json();
 
-        if (data.length === 0) {
+        if (!Array.isArray(data) || data.length === 0) {
           erro.textContent = 'CPF ou código não encontrado.';
         } else {
           localStorage.setItem('dadosCliente', JSON.stringify(data[0]));
           window.location.href = 'painel.html';
         }
       } catch (err) {
+        console.error(err);
         erro.textContent = 'Erro na conexão. Tente novamente.';
       }
     });
