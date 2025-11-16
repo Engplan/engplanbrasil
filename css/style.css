@@ -1,22 +1,29 @@
-body {
+/* RESET */
+* {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     background: #111;
-    color: #fff;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* ---------------------------- HERO ---------------------------- */
 
 .hero {
-    position: relative;
     background: #0c0c0c;
-    padding: 40px 7%;
+    min-height: 95vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 95vh;
+    padding: 40px 7%;
+    position: relative;
 }
 
+/* TOPO */
 .topo {
     position: absolute;
     top: 25px;
@@ -27,15 +34,16 @@ body {
 }
 
 .logo {
-    width: 140px;
+    width: 150px;
 }
 
 .slogan {
-    color: #efefef;
     font-size: 13px;
-    letter-spacing: 1.5px;
+    color: #ddd;
+    letter-spacing: 1.3px;
 }
 
+/* CONTEÚDO PRINCIPAL */
 .hero-content {
     max-width: 50%;
     margin-top: 120px;
@@ -49,63 +57,65 @@ body {
 }
 
 .hero-content p {
-    margin-top: 20px;
-    color: #e0e0e0;
-    line-height: 1.5;
-    font-size: 17px;
+    margin-top: 22px;
+    color: #d7d7d7;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 .btn-principal {
-    display: inline-block;
-    margin-top: 30px;
     background: #ff3e00;
-    padding: 14px 32px;
+    padding: 15px 34px;
     border-radius: 40px;
-    color: white;
+    color: #fff;
     font-weight: bold;
+    font-size: 18px;
+    display: inline-block;
     text-decoration: none;
-    font-size: 17px;
+    margin-top: 32px;
 }
 
+/* IMAGEM DO ENGENHEIRO */
 .hero-img img {
-    width: 280px;
-    filter: drop-shadow(0 0 20px rgba(255, 80, 0, 0.4));
+    width: 300px;
+    filter: drop-shadow(0 0 25px rgba(255, 70, 0, 0.5));
 }
 
 /* ---------------------------- SOBRE ---------------------------- */
 
 .sobre {
-    padding: 100px 10%;
-    text-align: center;
     background: url("images/predio.jpg") center/cover no-repeat;
     background-attachment: fixed;
+    padding: 110px 10%;
+    text-align: center;
 }
 
 .sobre h2 {
-    font-size: 32px;
+    font-size: 36px;
     color: #ff3e00;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .sobre p {
     max-width: 800px;
     margin: auto;
-    line-height: 1.6;
-    color: #ffffffd7;
+    color: #ffffffd8;
+    line-height: 1.7;
+    font-size: 18px;
 }
 
 /* ---------------------------- SERVIÇOS ---------------------------- */
 
 .servicos {
-    padding: 100px 10%;
-    text-align: center;
+    padding: 110px 8%;
     background: #181818;
+    text-align: center;
 }
 
 .servicos h2 {
-    font-size: 32px;
+    font-size: 36px;
     color: #ff3e00;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
 .servicos-grid {
@@ -116,13 +126,18 @@ body {
 }
 
 .servico {
-    width: 220px;
-    text-align: center;
+    width: 230px;
+    padding: 30px;
     background: rgba(255,255,255,0.05);
-    padding: 25px;
     border-radius: 16px;
     border: 1px solid #333;
-    backdrop-filter: blur(4px);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.servico:hover {
+    transform: translateY(-5px);
+    border-color: #ff3e00;
 }
 
 .servico img {
@@ -138,16 +153,16 @@ body {
 /* ---------------------------- CLIENTES ---------------------------- */
 
 .clientes {
-    padding: 100px 10%;
+    padding: 110px 10%;
     background: url("images/casa.jpg") center/cover no-repeat;
     background-attachment: fixed;
+    text-align: center;
 }
 
 .clientes h2 {
-    text-align: center;
+    font-size: 36px;
     color: #ff3e00;
-    font-size: 32px;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
 .clientes-grid {
@@ -159,47 +174,47 @@ body {
 
 .cliente {
     background: rgba(0,0,0,0.6);
-    padding: 20px;
+    padding: 25px;
     width: 280px;
-    border-radius: 12px;
-    border: 1px solid #333;
-    color: #fff;
+    border-radius: 14px;
+    border: 1px solid #444;
+    font-size: 16px;
 }
 
 .cliente span {
-    margin-top: 10px;
+    margin-top: 12px;
     display: block;
-    font-weight: bold;
     color: #ff3e00;
+    font-weight: bold;
 }
 
 /* ---------------------------- CONTATO ---------------------------- */
 
 .contato {
-    padding: 100px 10%;
+    padding: 120px 10%;
     background: url("images/sala-engplan.jpg") center/cover no-repeat;
-    color: white;
+    text-align: center;
 }
 
 .contato h2 {
-    font-size: 34px;
     color: #ff3e00;
-    margin-bottom: 25px;
+    font-size: 38px;
+    margin-bottom: 35px;
 }
 
 .contato-info p {
+    margin-bottom: 22px;
     line-height: 1.6;
-    margin-bottom: 20px;
 }
 
 .whatsapp-btn {
-    margin-top: 30px;
     display: inline-block;
-    padding: 15px 35px;
+    margin-top: 30px;
+    padding: 16px 40px;
     background: #25d366;
-    color: #000;
-    font-size: 18px;
-    text-decoration: none;
-    border-radius: 40px;
+    color: black;
+    font-size: 20px;
     font-weight: bold;
+    border-radius: 40px;
+    text-decoration: none;
 }
