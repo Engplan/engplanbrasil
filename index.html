@@ -1,89 +1,103 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ENGPLAN BRASIL</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="imagens/logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engplan Brasil</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header sobreposto -->
-  <header>
-   
-  </header>
 
-  <!-- Banner com vídeo e apenas botões -->
-  <section class="banner">
-    <video autoplay muted loop playsinline>
-      <source src="videos/banner.mp4" type="video/mp4" />
-      Seu navegador não suporta vídeo.
-    </video>
-    <div class="overlay">
-      <h2>Engenharia com Excelência</h2>
-      <p>Projetos, Construções e Reformas com qualidade e segurança</p>
-      <div class="banner-cta">
-        <a href="https://wa.me/5524992434862" target="_blank" class="cta-btn">WhatsApp</a>
-        <a href="#contato" class="cta-btn cta-secondary">Fale Conosco</a>
-      </div>
-    </div>
-  </section>
+    <!-- TOPO -->
+    <header class="hero">
+        <div class="topo">
+            <img src="images/logo-engplan.png" alt="Engplan Brasil" class="logo">
+            <span class="slogan">PROGRESSO EXIGE PLANEJAMENTO</span>
+        </div>
 
-  <section id="sobre">
-    <h2>Sobre a ENGPLAN BRASIL</h2>
-    <p>A ENGPLAN BRASIL é especializada em soluções completas de engenharia, atuando com excelência em <strong>Steel Frame</strong>, reformas residenciais e comerciais, construções do zero, projetos arquitetônicos e estruturais, elaboração de laudos técnicos e gestão de obras.</p>
-  </section>
+        <div class="hero-content">
+            <h1>O futuro se move<br>com quem<br>planeja bem.</h1>
+            <p>
+                A Engplan Brasil acompanha cada etapa do seu projeto, garantindo qualidade e regularidade
+                do início ao fim. Soluções completas em projetos, gestão, regularização e laudos.
+            </p>
 
-  <section id="servicos">
-    <h2>Serviços</h2>
-    <div class="servicos-container">
-      <div class="card"><h3>Projetos</h3><p>Desenvolvimento de projetos arquitetônicos, estruturais e complementares.</p></div>
-      <div class="card"><h3>Construção</h3><p>Execução de obras com materiais de qualidade e acompanhamento técnico.</p></div>
-      <div class="card"><h3>Reformas</h3><p>Transformações completas em imóveis residenciais, comerciais e industriais.</p></div>
-      <div class="card"><h3>Steel Frame</h3><p>Sistemas modernos e sustentáveis com estrutura metálica leve.</p></div>
-      <div class="card"><h3>Laudos Técnicos</h3><p>Vistorias e relatórios técnicos com responsabilidade e precisão.</p></div>
-      <div class="card"><h3>Gestão de Obra</h3><p>Planejamento e supervisão total para garantir prazos e eficiência.</p></div>
-    </div>
-  </section>
+            <a href="#contato" class="btn-principal">FALE CONOSCO</a>
+        </div>
 
-  <section id="galeria">
-    <h2>Projetos Realizados</h2>
-    <div class="galeria-container">
-      <a href="leito-hospitalar.html"><div class="imagem-projeto"><img src="imagens/obra1.png" alt="Projeto Leito Hospitalar" /><span>Leito Hospitalar</span></div></a>
-      <a href="barragem.html"><div class="imagem-projeto"><img src="imagens/obra2.png" alt="Implementação de Barragem" /><span>Implementação de Barragem</span></div></a>
-      <a href="cobertura.html"><div class="imagem-projeto"><img src="imagens/obra3.png" alt="Cobertura Comercial" /><span>Cobertura Galvanizada</span></div></a>
-      <a href="reforma-barra-studio.html"><div class="imagem-projeto"><img src="imagens/obra4.png" alt="Reforma Studio Barra" /><span>Reforma Barra Studio</span></div></a>
-    </div>
-  </section>
+        <div class="hero-img">
+            <img src="images/engenheiro-celular.png" alt="Engenheiro">
+        </div>
+    </header>
 
-  <section id="avaliacoes">
-    <h2>Avaliações dos Clientes</h2>
-    <div class="avaliacoes-container">
-      <div class="avaliacao"><p>"Serviço impecável e dentro do prazo! Recomendo a ENGPLAN BRASIL sem dúvidas."</p><span>- João Silva</span></div>
-      <div class="avaliacao"><p>"Fizeram a reforma completa do nosso apartamento com qualidade e excelente atendimento."</p><span>- Ana Paula</span></div>
-    </div>
-  </section>
+    <!-- SOBRE -->
+    <section class="sobre">
+        <h2>Sobre a<br>ENGPLAN BRASIL</h2>
 
-  <section id="acompanhamento">
-    <h2>Acompanhamento de Obras</h2>
-    <p>Acesse o painel exclusivo e acompanhe o progresso da sua obra em tempo real, com fotos, atualizações e cronograma.</p>
-    <a href="login.html" class="btn-acompanhar">Acompanhar Obra</a>
-  </section>
+        <p>
+            A Engplan Brasil é uma empresa especializada em soluções completas em engenharia, atuando com 
+            projetos, gestão de obras, regularização, laudos e perícias. Nosso compromisso é garantir 
+            segurança, eficiência e qualidade em cada etapa, oferecendo suporte técnico confiável para 
+            clientes que buscam planejamento, organização e resultados assertivos.
+        </p>
+    </section>
 
-  <section id="contato">
-    <h2>Contato</h2>
-    <form action="https://formsubmit.co/engplanbrasil@gmail.com" method="POST">
-      <input type="text" name="nome" placeholder="Seu nome" required />
-      <input type="email" name="email" placeholder="Seu e-mail" required />
-      <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-    <p>Entre em contato também pelo WhatsApp: <a href="https://wa.me/5524992434862" target="_blank">+55 24 99243-4862</a></p>
-    <p>Ou nos siga no Instagram: <a href="https://instagram.com/engplanbrasil" target="_blank">@engplanbrasil</a></p>
-  </section>
+    <!-- SERVIÇOS -->
+    <section class="servicos">
+        <h2>SERVIÇOS</h2>
 
-  <footer>
-    <p>&copy; 2025 ENGPLAN BRASIL. Todos os direitos reservados.</p>
-  </footer>
+        <div class="servicos-grid">
+            <div class="servico">
+                <img src="images/icon-projetos.png" alt="">
+                <p>PROJETOS E GESTÃO</p>
+            </div>
+
+            <div class="servico">
+                <img src="images/icon-regularizacao.png" alt="">
+                <p>REGULARIZAÇÃO</p>
+            </div>
+
+            <div class="servico">
+                <img src="images/icon-laudos.png" alt="">
+                <p>LAUDOS</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENTES -->
+    <section class="clientes">
+        <h2>CLIENTES</h2>
+
+        <div class="clientes-grid">
+            <div class="cliente">
+                <p>Serviço de altíssima qualidade. A Engplan Brasil trouxe segurança e clareza para todo o processo da minha obra.</p>
+                <span>Francine</span>
+            </div>
+
+            <div class="cliente">
+                <p>Profissionalismo impecável! Os laudos e acompanhamentos foram fundamentais para evitar problemas e acelerar meu projeto.</p>
+                <span>David</span>
+            </div>
+
+            <div class="cliente">
+                <p>Excelente atendimento. A equipe da Engplan Brasil solucionou tudo com rapidez, transparência e muita competência.</p>
+                <span>Ana Paula</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <footer id="contato" class="contato">
+        <h2>Fale conosco</h2>
+
+        <div class="contato-info">
+            <p><strong>TELEFONE</strong><br>(24) 99243-4862</p>
+            <p><strong>E-MAIL</strong><br>engplanbrasil@gmail.com</p>
+            <p><strong>SOCIAL</strong><br>@ENGPLANBRASIL</p>
+        </div>
+
+        <a href="https://wa.me/5524992434862" target="_blank" class="whatsapp-btn">WhatsApp</a>
+    </footer>
+
 </body>
 </html>
