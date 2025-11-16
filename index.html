@@ -1,110 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engplan Brasil</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Engplan Brasil</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-    <!-- HERO / BANNER -->
-    <header class="hero">
-        <div class="topo">
-            <img src="images/logo-engplan.png" alt="Engplan Brasil" class="logo">
-            <span class="slogan">PROGRESSO EXIGE PLANEJAMENTO</span>
+  <!-- NAV / TOPO SOBREPOSTO -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <img src="images/logo-engplan-white.png" alt="Engplan Brasil" class="logo" />
+      <ul class="menu">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#clientes">Clientes</a></li>
+        <li><a href="#contato" class="btn-nav">Fale Conosco</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO / BANNER -->
+  <header class="hero" role="banner">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="top-slogan">PROGRESSO EXIGE PLANEJAMENTO</span>
+        <h1 class="hero-title">O futuro se move<br>com quem planeja bem.</h1>
+        <p class="hero-sub">
+          A Engplan Brasil acompanha cada etapa do seu projeto — projetos, gestão, regularização e laudos —
+          com transparência, segurança e eficiência.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#contato" class="btn btn-primary">FALE CONOSCO</a>
+          <a href="https://wa.me/5524992434862" target="_blank" class="btn btn-whatsapp">WHATSAPP</a>
         </div>
+      </div>
 
-        <div class="hero-content">
-            <h1>O futuro se move<br>com quem<br>planeja bem.</h1>
+      <!-- imagem do celular/engenheiro (sobreposta) -->
+      <div class="hero-visual">
+        <img src="images/engenheiro-celular.png" alt="Engenheiro no celular" />
+      </div>
+    </div>
+  </header>
 
-            <p>
-                A Engplan Brasil acompanha cada etapa do seu projeto, garantindo qualidade e regularidade
-                do início ao fim. Soluções completas em projetos, gestão, regularização e laudos.
-            </p>
-
-            <a href="#contato" class="btn-principal">FALE CONOSCO</a>
-        </div>
-
-        <div class="hero-img">
-            <img src="images/engenheiro-celular.png" alt="Engenheiro no celular">
-        </div>
-    </header>
-
-    <!-- SOBRE -->
-    <section class="sobre">
-        <div class="sobre-content">
-            <h2>Sobre a<br>ENGPLAN BRASIL</h2>
-
-            <p>
-                A Engplan Brasil é uma empresa especializada em soluções completas em engenharia,
-                atuando com projetos, gestão de obras, regularização, laudos e perícias. Nosso compromisso
-                é garantir segurança, eficiência e qualidade em cada etapa, oferecendo suporte técnico 
-                confiável para clientes que buscam planejamento, organização e resultados assertivos.
-            </p>
-        </div>
+  <!-- SEÇÕES SIMPLES (podem ser removidas se quiser) -->
+  <main>
+    <section id="sobre" class="section about">
+      <div class="container">
+        <h2>Sobre a ENGPLAN BRASIL</h2>
+        <p>
+          A Engplan Brasil oferece soluções completas em engenharia: projetos executivos, gerenciamento de obras,
+          regularização e laudos técnicos. Atuamos com foco em resultados, segurança e planejamento.
+        </p>
+      </div>
     </section>
 
-    <!-- SERVIÇOS -->
-    <section class="servicos">
+    <section id="servicos" class="section services">
+      <div class="container">
         <h2>SERVIÇOS</h2>
-
-        <div class="servicos-grid">
-
-            <div class="servico">
-                <img src="images/icon-projetos.png" alt="">
-                <p>PROJETOS E GESTÃO</p>
-            </div>
-
-            <div class="servico">
-                <img src="images/icon-regularizacao.png" alt="">
-                <p>REGULARIZAÇÃO</p>
-            </div>
-
-            <div class="servico">
-                <img src="images/icon-laudos.png" alt="">
-                <p>LAUDOS TÉCNICOS</p>
-            </div>
+        <div class="cards">
+          <article class="card"><img src="images/icon-projetos.png" alt=""><h3>Projetos e Gestão</h3></article>
+          <article class="card"><img src="images/icon-regularizacao.png" alt=""><h3>Regularização</h3></article>
+          <article class="card"><img src="images/icon-laudos.png" alt=""><h3>Laudos Técnicos</h3></article>
         </div>
+      </div>
     </section>
 
-    <!-- CLIENTES -->
-    <section class="clientes">
+    <section id="clientes" class="section testimonials">
+      <div class="container">
         <h2>CLIENTES</h2>
-
-        <div class="clientes-grid">
-            <div class="cliente">
-                <p>"Serviço de altíssima qualidade. A Engplan Brasil trouxe segurança e clareza para todo o processo da minha obra."</p>
-                <span>— Francine</span>
-            </div>
-
-            <div class="cliente">
-                <p>"Profissionalismo impecável! Os laudos e acompanhamentos foram fundamentais para evitar problemas e acelerar meu projeto."</p>
-                <span>— David</span>
-            </div>
-
-            <div class="cliente">
-                <p>"A equipe da Engplan Brasil solucionou tudo com rapidez, transparência e muita competência."</p>
-                <span>— Ana Paula</span>
-            </div>
+        <div class="test-grid">
+          <blockquote>“Serviço de altíssima qualidade. A Engplan trouxe segurança ao processo.” <cite>— Francine</cite></blockquote>
+          <blockquote>“Profissionalismo impecável! Os laudos aceleraram meu projeto.” <cite>— David</cite></blockquote>
+          <blockquote>“Atendimento rápido e transparente.” <cite>— Ana Paula</cite></blockquote>
         </div>
+      </div>
     </section>
+  </main>
 
-    <!-- CONTATO -->
-    <footer id="contato" class="contato">
-        <h2>Fale conosco</h2>
+  <!-- FOOTER / CONTATO -->
+  <footer id="contato" class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Fale conosco</h3>
+        <p><strong>Telefone:</strong> (24) 99243-4862<br><strong>E-mail:</strong> engplanbrasil@gmail.com</p>
+      </div>
 
-        <div class="contato-info">
-            <p><strong>TELEFONE</strong><br>(24) 99243-4862</p>
-            <p><strong>E-MAIL</strong><br>engplanbrasil@gmail.com</p>
-            <p><strong>SOCIAL</strong><br>@engplanbrasil</p>
-        </div>
+      <div>
+        <h3>Redes</h3>
+        <p>@engplanbrasil</p>
+        <a class="btn btn-whatsapp" href="https://wa.me/5524992434862" target="_blank">Abrir WhatsApp</a>
+      </div>
+    </div>
 
-        <a href="https://wa.me/5524992434862" target="_blank" class="whatsapp-btn">
-            WhatsApp
-        </a>
-    </footer>
+    <div class="copyright">
+      © <span id="year"></span> Engplan Brasil — Todos os direitos reservados
+    </div>
+  </footer>
+
+  <script>
+    // atualiza ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>

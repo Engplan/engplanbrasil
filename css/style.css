@@ -1,220 +1,193 @@
 /* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color:#fff;
+  background:#0b0b0b;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
 }
 
-body {
-    background: #111;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+/* NAV - sobreposta ao banner */
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:60;
+  padding:18px 6%;
+  display:flex;
+  justify-content:center;
+  background:transparent;
+}
+.nav-inner{
+  width:100%;
+  max-width:1200px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{height:48px;display:block}
+.menu{list-style:none;display:flex;gap:18px;align-items:center}
+.menu a{
+  color:#fff;text-decoration:none;font-weight:600;padding:8px 12px;border-radius:8px;
+}
+.menu a:hover{opacity:.9}
+.btn-nav{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:10px 16px;
+  color:#fff;
 }
 
-/* ---------------------------- HERO ---------------------------- */
-
-.hero {
-    background: #0c0c0c;
-    min-height: 95vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 7%;
-    position: relative;
+/* HERO */
+.hero{
+  position:relative;
+  min-height:86vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  overflow:hidden;
+  background-image: url("images/hero-bg.jpg"); /* substitua pela sua imagem de banner */
+  background-size:cover;
+  background-position:center;
 }
 
-/* TOPO */
-.topo {
-    position: absolute;
-    top: 25px;
-    left: 7%;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+/* escurece o banner para contraste */
+.hero-overlay{
+  position:absolute;inset:0;background:linear-gradient(180deg, rgba(4,4,4,0.6) 0%, rgba(4,4,4,0.7) 60%);z-index:1;
 }
 
-.logo {
-    width: 150px;
+/* HERO CONTENT: texto à esquerda, visual à direita */
+.hero-content{
+  position:relative;
+  z-index:5;
+  width:100%;
+  max-width:1200px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:64px 6%;
+  gap:24px;
 }
 
-.slogan {
-    font-size: 13px;
-    color: #ddd;
-    letter-spacing: 1.3px;
+/* Texto do hero */
+.hero-text{max-width:52%;}
+.top-slogan{
+  display:inline-block;
+  font-size:12px;
+  letter-spacing:2px;
+  color:rgba(255,255,255,0.85);
+  margin-bottom:12px;
+}
+.hero-title{
+  font-weight:800;
+  color:#ff6300; /* laranja forte */
+  font-size:64px;
+  line-height:1.02;
+  margin-bottom:18px;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+.hero-sub{
+  color:rgba(255,255,255,0.92);
+  font-size:18px;
+  max-width:640px;
+  margin-bottom:26px;
 }
 
-/* CONTEÚDO PRINCIPAL */
-.hero-content {
-    max-width: 50%;
-    margin-top: 120px;
+/* CTAs */
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  font-weight:700;
+  border-radius:999px;
+  padding:12px 26px;
+  font-size:16px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.4);
+}
+.btn-primary{
+  background:linear-gradient(90deg,#ff6a00,#ff3e00);
+  color:#fff;
+  border:0;
+}
+.btn-whatsapp{
+  background:#25d366;color:#000;
 }
 
-.hero-content h1 {
-    font-size: 48px;
-    line-height: 1.1;
-    color: #ff3e00;
-    font-weight: bold;
+/* IMAGEM/ILUSTRAÇÃO DO LADO DIREITO (celular com engenheiro) */
+.hero-visual{
+  position:relative;
+  width:360px;
+  min-width:240px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  transform:translateY(10px);
+}
+.hero-visual img{
+  width:100%;
+  max-width:380px;
+  display:block;
+  filter:drop-shadow(0 40px 60px rgba(0,0,0,0.6));
+  transform:translateY(0);
 }
 
-.hero-content p {
-    margin-top: 22px;
-    color: #d7d7d7;
-    font-size: 18px;
-    line-height: 1.6;
+/* SEÇÕES */
+.section{padding:80px 6%}
+.container{max-width:1100px;margin:0 auto}
+
+/* Sobre */
+.about{background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04));color:rgba(255,255,255,0.95)}
+.about h2{font-size:30px;color:#ff6300;margin-bottom:16px}
+.about p{font-size:17px;color:rgba(255,255,255,0.9);max-width:900px}
+
+/* Serviços */
+.services{background:#0f0f10}
+.services h2{color:#ff6300;font-size:30px;margin-bottom:24px}
+.cards{display:flex;gap:20px;flex-wrap:wrap}
+.card{background:rgba(255,255,255,0.03);padding:22px;border-radius:12px;width:220px;text-align:center;border:1px solid rgba(255,255,255,0.03)}
+.card img{height:64px;margin-bottom:12px}
+.card h3{font-size:16px;color:#fff}
+
+/* Depoimentos */
+.testimonials h2{color:#ff6300;font-size:30px;margin-bottom:24px}
+.test-grid{display:flex;gap:18px;flex-wrap:wrap}
+.test-grid blockquote{background:rgba(0,0,0,0.6);padding:20px;border-radius:10px;width:320px;border-left:4px solid rgba(255,99,0,0.9)}
+.test-grid cite{display:block;margin-top:12px;color:#ffb280;font-weight:700}
+
+/* FOOTER */
+.footer{padding:64px 6%;background:#070707;color:rgba(255,255,255,0.92)}
+.footer-grid{display:flex;gap:24px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.footer h3{color:#ff6300;margin-bottom:8px}
+.footer p{color:rgba(255,255,255,0.9)}
+.footer .btn{margin-top:8px}
+
+copyright{display:block;text-align:center;margin-top:20px}
+.footer .copyright{text-align:center;margin-top:38px;color:rgba(255,255,255,0.45);font-size:14px}
+
+/* RESPONSIVO */
+@media (max-width: 992px){
+  .hero-title{font-size:44px}
+  .hero-text{max-width:60%}
+  .hero-content{padding:48px 6%}
+  .hero-visual{width:300px}
 }
-
-.btn-principal {
-    background: #ff3e00;
-    padding: 15px 34px;
-    border-radius: 40px;
-    color: #fff;
-    font-weight: bold;
-    font-size: 18px;
-    display: inline-block;
-    text-decoration: none;
-    margin-top: 32px;
+@media (max-width: 768px){
+  .nav-inner{padding:0 6%}
+  .menu{display:none} /* simplifica menu no mobile — você pode adicionar um ícone depois */
+  .hero{min-height:80vh}
+  .hero-content{flex-direction:column;align-items:flex-start;padding:36px 6%}
+  .hero-text{max-width:100%}
+  .hero-title{font-size:32px}
+  .hero-visual{width:220px;margin-top:22px;align-self:center}
+  .hero-sub{font-size:15px}
+  .cards{justify-content:center}
+  .test-grid{justify-content:center}
+  .footer-grid{flex-direction:column;gap:18px}
 }
-
-/* IMAGEM DO ENGENHEIRO */
-.hero-img img {
-    width: 300px;
-    filter: drop-shadow(0 0 25px rgba(255, 70, 0, 0.5));
-}
-
-/* ---------------------------- SOBRE ---------------------------- */
-
-.sobre {
-    background: url("images/predio.jpg") center/cover no-repeat;
-    background-attachment: fixed;
-    padding: 110px 10%;
-    text-align: center;
-}
-
-.sobre h2 {
-    font-size: 36px;
-    color: #ff3e00;
-    margin-bottom: 25px;
-}
-
-.sobre p {
-    max-width: 800px;
-    margin: auto;
-    color: #ffffffd8;
-    line-height: 1.7;
-    font-size: 18px;
-}
-
-/* ---------------------------- SERVIÇOS ---------------------------- */
-
-.servicos {
-    padding: 110px 8%;
-    background: #181818;
-    text-align: center;
-}
-
-.servicos h2 {
-    font-size: 36px;
-    color: #ff3e00;
-    margin-bottom: 45px;
-}
-
-.servicos-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.servico {
-    width: 230px;
-    padding: 30px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 16px;
-    border: 1px solid #333;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.servico:hover {
-    transform: translateY(-5px);
-    border-color: #ff3e00;
-}
-
-.servico img {
-    width: 80px;
-}
-
-.servico p {
-    margin-top: 15px;
-    font-weight: bold;
-    color: #fff;
-}
-
-/* ---------------------------- CLIENTES ---------------------------- */
-
-.clientes {
-    padding: 110px 10%;
-    background: url("images/casa.jpg") center/cover no-repeat;
-    background-attachment: fixed;
-    text-align: center;
-}
-
-.clientes h2 {
-    font-size: 36px;
-    color: #ff3e00;
-    margin-bottom: 45px;
-}
-
-.clientes-grid {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.cliente {
-    background: rgba(0,0,0,0.6);
-    padding: 25px;
-    width: 280px;
-    border-radius: 14px;
-    border: 1px solid #444;
-    font-size: 16px;
-}
-
-.cliente span {
-    margin-top: 12px;
-    display: block;
-    color: #ff3e00;
-    font-weight: bold;
-}
-
-/* ---------------------------- CONTATO ---------------------------- */
-
-.contato {
-    padding: 120px 10%;
-    background: url("images/sala-engplan.jpg") center/cover no-repeat;
-    text-align: center;
-}
-
-.contato h2 {
-    color: #ff3e00;
-    font-size: 38px;
-    margin-bottom: 35px;
-}
-
-.contato-info p {
-    margin-bottom: 22px;
-    line-height: 1.6;
-}
-
-.whatsapp-btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 16px 40px;
-    background: #25d366;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 40px;
-    text-decoration: none;
+@media (max-width:420px){
+  .hero-title{font-size:26px}
+  .btn{padding:10px 18px;font-size:15px}
 }
