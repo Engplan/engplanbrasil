@@ -1,160 +1,236 @@
-/* RESET */
+/* ===========================
+   CONFIGURAÇÕES GERAIS
+   =========================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* HEADER */
-.topo {
+body {
+    background: #0b0b0b;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #ff0000, #ff7a00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* ===========================
+   HERO (CAMADA 1)
+   =========================== */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LOGO */
+.hero-logo img {
+    width: 180px;
+}
+
+/* TEXTO PRINCIPAL */
+.hero-title {
+    font-size: 3.3rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    opacity: 0.85;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* BOTÃO WHATSAPP */
+.btn-whatsapp {
+    background: linear-gradient(135deg, #ff0000, #ff7a00);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: .3s;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 20px rgba(255, 100, 0, 0.7);
+}
+
+.btn-whatsapp.large {
+    padding: 18px 50px;
+    font-size: 1.3rem;
+}
+
+/* CELULAR */
+.hero-phone img {
+    width: 420px;
+    filter: drop-shadow(0 0 25px rgba(255, 120, 0, 0.6));
+    animation: float 4s ease-in-out infinite;
+}
+
+/* ANIMAÇÃO FLUTUANTE */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+/* CAMADAS DO FUNDO */
+.hero-layer {
     position: absolute;
-    top: 0;
+    top: 0; left: 0;
     width: 100%;
-    padding: 25px 60px;
+    height: 100%;
+    background-size: cover;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.layer1 { background-image: url("images/bg-layer-1.jpg"); }
+.layer2 { background-image: url("images/bg-layer-2.png"); }
+.layer3 { background-image: url("images/bg-layer-3.png"); }
+.layer4 { background-image: url("images/bg-layer-4.png"); opacity: 0.20; }
+
+
+/* ===========================
+   SEÇÕES GERAIS
+   =========================== */
+
+.section {
+    padding: 120px 60px;
+    position: relative;
+}
+
+.section-title {
+    font-size: 2.6rem;
+    margin-bottom: 30px;
+}
+
+.section-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    max-width: 900px;
+}
+
+
+/* ===========================
+   SERVIÇOS
+   =========================== */
+
+.service-buttons {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-box {
+    text-align: center;
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.service-btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff0000, #ff7a00);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.service-btn:hover {
+    transform: scale(1.05);
+}
+
+
+/* ===========================
+   CLIENTES
+   =========================== */
+
+.client-list {
+    display: flex;
+    gap: 30px;
+}
+
+.client-card {
+    width: 33%;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    min-height: 200px;
+}
+
+.client-name {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.client-text {
+    font-size: 1rem;
+    opacity: 0.85;
+}
+
+
+/* ===========================
+   CONTATO
+   =========================== */
+
+.contact {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 50;
 }
 
-.topo .logo {
-    font-size: 26px;
-    font-weight: 800;
-    color: white;
-    letter-spacing: 1px;
+.contact-item {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
 }
 
-.topo .logo span {
-    color: #ff9100;
+.contact-right {
+    text-align: right;
 }
 
-.topo nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-size: 16px;
-    transition: 0.3s;
+
+/* ===========================
+   ANIMAÇÕES DE ENTRADA
+   =========================== */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s ease;
 }
 
-.topo nav a:hover {
-    color: #ff9100;
-}
-
-/* HERO */
-.hero {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-}
-
-/* BG CAMADAS */
-.bg-wrapper {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Camadas na ordem correta */
-.layer1 { z-index: 1; opacity: 1; }
-.layer2 { z-index: 2; opacity: 1; }
-.layer3 { z-index: 3; opacity: .9; }
-.layer4 { z-index: 4; opacity: 1; }
-
-.personagem {
-    z-index: 5;
-    width: auto;
-    height: 100%;
-    right: 0;
-    bottom: 0;
-    object-fit: contain;
-}
-
-/* HERO CONTENT */
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 7%;
-    transform: translateY(-50%);
-    z-index: 20;
-    color: white;
-}
-
-.hero-content h1 {
-    font-size: 72px;
-    font-weight: 900;
-    line-height: 1.1;
-    text-transform: uppercase;
-    color: white;
-    text-shadow: 0px 5px 15px rgba(0,0,0,0.6);
-}
-
-.hero-content p {
-    margin-top: 20px;
-    font-size: 22px;
-    opacity: 0.9;
-}
-
-/* BOTÕES */
-.hero-buttons {
-    margin-top: 35px;
-    display: flex;
-    gap: 20px;
-}
-
-.btn {
-    padding: 15px 32px;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: 0.3s ease;
-}
-
-.btn-whats {
-    background: #25D366;
-    color: white;
-}
-
-.btn-whats:hover {
-    background: #1fa855;
-}
-
-.btn-cta {
-    background: #ff9100;
-    color: black;
-}
-
-.btn-cta:hover {
-    background: #e07d00;
-}
-
-/* RESPONSIVO */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 46px;
-    }
-
-    .hero-content p {
-        font-size: 18px;
-    }
-
-    .btn {
-        font-size: 16px;
-        padding: 14px 24px;
-    }
-
-    .personagem {
-        opacity: .4;
-    }
+.show {
+    opacity: 1;
+    transform: translateY(0);
 }
