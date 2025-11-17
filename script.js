@@ -1,18 +1,12 @@
-// Paralaxe cinematográfico avançado
-const layers = document.querySelectorAll('.layer');
+// animações suaves no scroll
+document.addEventListener("scroll", () => {
+    const sections = document.querySelectorAll("section, header");
 
-window.addEventListener('scroll', () => {
-  const scrollTop = window.pageYOffset;
-
-  layers.forEach(layer => {
-    const speed = layer.getAttribute('data-speed');
-    const yPos = -(scrollTop * speed);
-    if(layer.classList.contains('layer-cell') || layer.classList.contains('layer-engineer')){
-      // mantém flutuação combinada com paralaxe
-      let floatOffset = parseFloat(getComputedStyle(layer).transform.split(',')[5]) || 0;
-      layer.style.transform = `translateX(-50%) translateY(${yPos + floatOffset}px)`;
-    } else {
-      layer.style.transform = `translateY(${yPos}px)`;
-    }
-  });
+    sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 120) {
+            sec.style.opacity = "1";
+            sec.style.transform = "translateY(0px)";
+        }
+    });
 });
