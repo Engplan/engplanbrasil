@@ -1,44 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engplan Brasil</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Engplan Brasil</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <header class="topo">
-        <div class="logo">ENGPLAN <span>BRASIL</span></div>
-        <nav>
-            <a href="#">Início</a>
-            <a href="#">Serviços</a>
-            <a href="#">Obras</a>
-            <a href="#">Contato</a>
-        </nav>
-    </header>
+  <!-- TOPO (sobreposto) -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <img src="images/logo-engplan-white.png" alt="Engplan Brasil" class="brand-logo">
+      </div>
+      <nav class="nav">
+        <a href="#about">Sobre</a>
+        <a href="#services">Serviços</a>
+        <a href="#works">Obras</a>
+        <a href="#contact" class="nav-cta">Contato</a>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero">
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="bg-wrapper" aria-hidden="true">
+      <img src="images/bg-layer-1.jpg" class="layer layer-1" alt="">
+      <img src="images/bg-layer-2.png" class="layer layer-2" alt="">
+      <img src="images/bg-layer-3.png" class="layer layer-3" alt="">
+      <img src="images/bg-layer-4.png" class="layer layer-4" alt="">
+      <img src="images/personagem.png" class="layer personagem" alt="">
+    </div>
 
-        <!-- Camadas do fundo -->
-        <div class="bg-wrapper">
-            <img src="images/bg-layer-1.jpg" class="bg layer1">
-            <img src="images/bg-layer-2.png" class="bg layer2">
-            <img src="images/bg-layer-3.png" class="bg layer3">
-            <img src="images/bg-layer-4.png" class="bg layer4">
-            <img src="images/personagem.png" class="bg personagem">
+    <div class="hero-inner container">
+      <div class="hero-copy">
+        <div class="slogan">PROGRESSO EXIGE PLANEJAMENTO</div>
+
+        <h1 class="hero-title">
+          O futuro se move<br>
+          com quem planeja bem.
+        </h1>
+
+        <p class="hero-sub">
+          A Engplan Brasil acompanha cada etapa do seu projeto, garantindo qualidade e regularidade do início ao fim.
+          <br>
+          Soluções completas em projetos, gestão, regularização e laudos.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="https://wa.me/5524992434862" class="btn btn-whatsapp" target="_blank" rel="noopener">WHATSAPP</a>
+          <a href="#contact" class="btn btn-quote">ORÇAMENTO</a>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="hero-content">
-            <h1>SOLUÇÕES<br>DE ENGENHARIA</h1>
-            <p>Projetos, obras, regularizações e serviços técnicos<br>com qualidade e precisão.</p>
-
-            <div class="hero-buttons">
-                <a href="#" class="btn btn-whats">Falar no WhatsApp</a>
-                <a href="#" class="btn btn-cta">Solicitar Orçamento</a>
-            </div>
-        </div>
+  <!-- Exemplo de seção abaixo (mantive simples) -->
+  <main>
+    <section id="about" class="section about">
+      <div class="container">
+        <h2>Sobre a ENGPLAN BRASIL</h2>
+        <p>Empresa especializada em projetos, gestão de obras, regularização e laudos técnicos, com foco em qualidade e segurança.</p>
+      </div>
     </section>
+  </main>
 
+  <!-- RODAPÉ -->
+  <footer id="contact" class="footer">
+    <div class="container footer-inner">
+      <div>
+        <h3>Fale conosco</h3>
+        <p><strong>Telefone:</strong> (24) 99243-4862<br><strong>E-mail:</strong> engplanbrasil@gmail.com</p>
+      </div>
+      <div>
+        <h3>Redes</h3>
+        <p>@engplanbrasil</p>
+        <a href="https://wa.me/5524992434862" target="_blank" class="btn btn-whatsapp">Abrir WhatsApp</a>
+      </div>
+    </div>
+    <div class="copyright">
+      © <span id="year"></span> Engplan Brasil — Todos os direitos reservados
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
