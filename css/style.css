@@ -3,114 +3,158 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-body {
-    background: #000;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+/* HEADER */
+.topo {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 25px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
 }
 
-/* HERO - fundo igual à imagem enviada */
+.topo .logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.topo .logo span {
+    color: #ff9100;
+}
+
+.topo nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.topo nav a:hover {
+    color: #ff9100;
+}
+
+/* HERO */
 .hero {
     width: 100%;
     height: 100vh;
-    background: url("images/Compilada.png") center/cover no-repeat;
     position: relative;
-    display: flex;
-    align-items: center;
-    padding-left: 8%;
+    overflow: hidden;
 }
 
-/* LOGO no topo */
-.topo {
+/* BG CAMADAS */
+.bg-wrapper {
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 40px;
-    left: 8%;
+    top: 0;
+    left: 0;
 }
 
-.logo {
-    width: 160px;
-    filter: drop-shadow(0 0 8px rgba(0,0,0,0.6));
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Textos principais */
-.conteudo {
-    max-width: 540px;
-    margin-top: 40px;
+/* Camadas na ordem correta */
+.layer1 { z-index: 1; opacity: 1; }
+.layer2 { z-index: 2; opacity: 1; }
+.layer3 { z-index: 3; opacity: .9; }
+.layer4 { z-index: 4; opacity: 1; }
+
+.personagem {
+    z-index: 5;
+    width: auto;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    object-fit: contain;
 }
 
-.conteudo h1 {
-    font-size: 54px;
-    font-weight: 800;
+/* HERO CONTENT */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 7%;
+    transform: translateY(-50%);
+    z-index: 20;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 72px;
+    font-weight: 900;
     line-height: 1.1;
-    color: #fff;
     text-transform: uppercase;
-    text-shadow: 0 0 18px rgba(0,0,0,0.7);
+    color: white;
+    text-shadow: 0px 5px 15px rgba(0,0,0,0.6);
 }
 
-.conteudo p {
-    margin-top: 25px;
-    font-size: 18px;
-    color: #ededed;
-    line-height: 1.6;
-    font-weight: 300;
-    text-shadow: 0 0 12px rgba(0,0,0,0.6);
+.hero-content p {
+    margin-top: 20px;
+    font-size: 22px;
+    opacity: 0.9;
 }
 
-/* Botão igual ao modelo */
-.botao {
-    display: inline-block;
+/* BOTÕES */
+.hero-buttons {
     margin-top: 35px;
-    background: #ff8a00;
-    color: #000;
-    padding: 16px 45px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 0 18px rgba(255,138,0,0.45);
-    transition: 0.25s ease;
+    display: flex;
+    gap: 20px;
 }
 
-.botao:hover {
-    transform: translateY(-3px);
-    opacity: 0.95;
-    box-shadow: 0 0 25px rgba(255,138,0,0.65);
+.btn {
+    padding: 15px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-whats {
+    background: #25D366;
+    color: white;
+}
+
+.btn-whats:hover {
+    background: #1fa855;
+}
+
+.btn-cta {
+    background: #ff9100;
+    color: black;
+}
+
+.btn-cta:hover {
+    background: #e07d00;
 }
 
 /* RESPONSIVO */
-@media (max-width: 900px) {
-    .conteudo h1 {
-        font-size: 38px;
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 46px;
     }
 
-    .conteudo p {
-        font-size: 16px;
-    }
-
-    .botao {
-        padding: 12px 34px;
+    .hero-content p {
         font-size: 18px;
     }
-}
 
-@media (max-width: 600px) {
-    .hero {
-        padding-left: 5%;
-        background-position: center;
+    .btn {
+        font-size: 16px;
+        padding: 14px 24px;
     }
 
-    .logo {
-        width: 120px;
-    }
-
-    .conteudo h1 {
-        font-size: 32px;
-        line-height: 1.2;
-    }
-
-    .conteudo p {
-        font-size: 15px;
+    .personagem {
+        opacity: .4;
     }
 }
