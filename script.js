@@ -1,12 +1,11 @@
-// animações suaves no scroll
-document.addEventListener("scroll", () => {
-    const sections = document.querySelectorAll("section, header");
+// Seleciona todos os elementos com classe .parallax
+const parallaxItems = document.querySelectorAll(".parallax");
 
-    sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 120) {
-            sec.style.opacity = "1";
-            sec.style.transform = "translateY(0px)";
-        }
+window.addEventListener("scroll", () => {
+    const scrollTop = window.pageYOffset;
+
+    parallaxItems.forEach(item => {
+        const speed = item.dataset.speed;
+        item.style.transform = `translateY(${scrollTop * speed * 0.01}px)`;
     });
 });

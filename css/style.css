@@ -1,229 +1,289 @@
+/* ==========================
+   RESET E FONTES
+========================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #0d0d0d 20%, #1a1a1a 80%);
-    color: white;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background-color: #111;
+    line-height: 1.6;
 }
 
-/* ------------------------------ */
-/* HERO / BANNER */
-/* ------------------------------ */
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
+/* ==========================
+   BANNER HERO
+========================== */
 .hero {
-    width: 100%;
-    min-height: 100vh;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    padding: 60px;
+    justify-content: space-between;
+    padding: 0 5%;
+    background: linear-gradient(135deg, #0d0d0d 0%, #111 100%);
+}
+
+.hero-bg-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+    z-index: 1;
+}
+
+.hero-content {
     position: relative;
+    z-index: 5;
+    max-width: 50%;
 }
 
 .logo {
     width: 180px;
-    margin-bottom: 30px;
-}
-
-.hero-content {
-    max-width: 600px;
-    z-index: 20;
+    margin-bottom: 20px;
 }
 
 .hero-title {
     font-size: 3rem;
     font-weight: 800;
-    line-height: 1.2;
-    background: linear-gradient(135deg, #ff0000, #ff7a00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
 }
 
 .hero-subtitle {
-    margin-top: 20px;
     font-size: 1.1rem;
-    color: #e6e6e6;
+    margin-bottom: 30px;
 }
 
-.hero-buttons {
-    margin-top: 35px;
-    display: flex;
-    gap: 20px;
+.hero-buttons a {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: all 0.3s ease;
 }
 
 .btn-primary {
-    padding: 15px 30px;
-    background: linear-gradient(135deg, #ff0000, #ff7a00);
-    color: white;
-    border-radius: 8px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: 0.3s;
+    background-color: #ff7a00;
+    color: #fff;
 }
 
 .btn-primary:hover {
-    opacity: 0.8;
+    background-color: #ff9500;
 }
 
 .btn-outline {
-    padding: 15px 30px;
-    border: 2px solid #ff6a00;
-    border-radius: 8px;
-    color: white;
-    font-weight: 700;
-    text-decoration: none;
-    transition: 0.3s;
+    border: 2px solid #ff7a00;
+    color: #ff7a00;
 }
 
 .btn-outline:hover {
-    background: #ff6a00;
+    background-color: #ff7a00;
+    color: #111;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 4;
+    max-width: 45%;
 }
 
 .hero-image img {
-    width: 480px;
-    filter: drop-shadow(0px 0px 18px rgba(255, 122, 0, 0.6));
+    width: 100%;
+    max-width: 400px;
+    display: block;
     position: absolute;
-    right: 30px;
     bottom: 0;
+    transition: transform 0.2s ease-out;
 }
 
-
-
-/* ------------------------------ */
-/* SEÇÕES PADRÃO */
-/* ------------------------------ */
-
-section {
-    padding: 100px 60px;
+/* ==========================
+   SEÇÃO SOBRE
+========================== */
+.sobre {
+    padding: 100px 5%;
+    text-align: center;
 }
 
 .section-title {
     font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 25px;
-}
-
-.gradient {
-    background: linear-gradient(135deg, #ff0000, #ff7a00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    margin-bottom: 30px;
 }
 
 .section-text {
-    max-width: 700px;
-    color: #d8d8d8;
+    max-width: 800px;
+    margin: 0 auto;
     font-size: 1.1rem;
+    color: #ccc;
 }
 
-
-
-/* ------------------------------ */
-/* SERVIÇOS */
-/* ------------------------------ */
-
-.servicos-grid {
-    display: flex;
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.servico-card {
+/* ==========================
+   SEÇÃO SERVIÇOS
+========================== */
+.servicos {
+    padding: 100px 5%;
     text-align: center;
 }
 
+.servicos-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.servico-card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 20px;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servico-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(255, 122, 0, 0.3);
+}
+
 .servico-icon {
-    font-size: 40px;
+    font-size: 2.5rem;
     margin-bottom: 15px;
 }
 
 .servico-btn {
-    padding: 15px 25px;
-    background: linear-gradient(135deg, #ff0000, #ff7a00);
+    padding: 10px 20px;
+    border-radius: 50px;
     border: none;
-    border-radius: 8px;
-    color: white;
-    font-weight: 700;
+    background-color: #ff7a00;
+    color: #fff;
+    font-weight: 600;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
+.servico-btn:hover {
+    background-color: #ff9500;
+}
 
-
-/* ------------------------------ */
-/* CLIENTES */
-/* ------------------------------ */
+/* ==========================
+   SEÇÃO CLIENTES
+========================== */
+.clientes {
+    padding: 100px 5%;
+    text-align: center;
+    background-color: #111;
+}
 
 .clientes-grid {
     display: flex;
-    gap: 40px;
-    margin-top: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
 }
 
 .cliente-box {
-    background: rgba(255, 255, 255, 0.05);
+    background-color: #1a1a1a;
     padding: 25px;
-    border-radius: 12px;
-    width: 30%;
-    backdrop-filter: blur(4px);
+    border-radius: 20px;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cliente-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(255, 122, 0, 0.3);
 }
 
 .cliente-nome {
     font-size: 1.3rem;
-    margin-bottom: 12px;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .cliente-depo {
-    color: #f2f2f2;
     font-size: 1rem;
+    color: #ccc;
 }
 
-
-
-/* ------------------------------ */
-/* CONTATO */
-/* ------------------------------ */
-
+/* ==========================
+   SEÇÃO CONTATO
+========================== */
 .contato {
+    padding: 100px 5%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    background-color: #111;
+}
+
+.contato-textos {
+    max-width: 45%;
 }
 
 .contato-info {
+    margin-bottom: 15px;
     font-size: 1.1rem;
-    margin-bottom: 12px;
 }
 
-.big {
-    font-size: 1.3rem;
-    padding: 20px 40px;
+.contato-acao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.btn-primary.big {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
 
+/* ==========================
+   GRADIENTES
+========================== */
+.gradient {
+    background: linear-gradient(90deg, #ff7a00, #ffc100);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-/* MOBILE */
-@media (max-width: 900px) {
-
-    .hero {
-        flex-direction: column;
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+@media screen and (max-width: 1024px) {
+    .hero-content, .hero-image {
+        max-width: 100%;
         text-align: center;
     }
 
     .hero-image img {
         position: relative;
-        width: 300px;
-        margin-top: 40px;
-        right: 0;
+        bottom: auto;
+        margin: 0 auto;
     }
 
-    .servicos-grid,
-    .clientes-grid {
+    .contato {
         flex-direction: column;
+        align-items: center;
     }
 
-    .cliente-box {
-        width: 100%;
+    .contato-textos, .contato-acao {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .servicos-grid, .clientes-grid {
+        flex-direction: column;
+        align-items: center;
     }
 }
