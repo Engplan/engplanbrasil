@@ -1,12 +1,12 @@
-// animações suaves no scroll
-document.addEventListener("scroll", () => {
-    const sections = document.querySelectorAll("section, header");
+// Paralaxe avançada ao rolar
+const layers = document.querySelectorAll('.layer');
 
-    sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 120) {
-            sec.style.opacity = "1";
-            sec.style.transform = "translateY(0px)";
-        }
-    });
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset;
+
+  layers.forEach(layer => {
+    const speed = layer.getAttribute('data-speed');
+    const yPos = -(scrollTop * speed);
+    layer.style.transform = `translateY(${yPos}px) translateX(-50%)`;
+  });
 });
