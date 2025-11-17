@@ -1,236 +1,138 @@
-/* ===========================
-   CONFIGURAÇÕES GERAIS
-   =========================== */
+/* ===========================================
+   Engplan Brasil — style.css
+   Visual: Glass + Neon (intensidade média)
+   Gradiente principal: linear-gradient(135deg,#ff0000,#ff7a00)
+   =========================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* RESET */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: 'Poppins', sans-serif;
+  color:#fff;
+  background:#070707;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  -webkit-text-size-adjust:100%;
 }
 
-body {
-    background: #0b0b0b;
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    overflow-x: hidden;
+/* LAYOUT */
+.container{max-width:1200px;margin:0 auto;padding:0 6%}
+.header-inner{display:flex;align-items:center;height:72px}
+.brand-logo{height:56px;display:block}
+
+/* ACCENT GRADIENT for texts/buttons */
+:root{
+  --accent-gradient: linear-gradient(135deg,#ff0000,#ff7a00);
+  --accent-color-start: #ff0000;
+  --accent-color-end: #ff7a00;
 }
 
-h1, h2, h3 {
-    font-family: 'Montserrat', sans-serif;
+/* utility */
+.accent-gradient{
+  background-image:var(--accent-gradient);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 
-.gradient-text {
-    background: linear-gradient(135deg, #ff0000, #ff7a00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* ================= HERO ================== */
+.section{padding:96px 0;position:relative;z-index:10}
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;padding-top:80px;padding-bottom:40px}
+
+/* hero background (CSS-only) */
+.hero-bg{
+  position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(ellipse at 85% 50%, rgba(255,120,30,0.12), transparent 12%),
+    linear-gradient(180deg, rgba(6,6,6,1), rgba(12,12,12,1));
+  filter:contrast(1.03) saturate(1.02);
+  pointer-events:none;
 }
 
+/* decorative glass shapes */
+.glass-shapes{position:absolute;inset:0;z-index:5;pointer-events:none}
+.glass{position:absolute;border-radius:20px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 40px 80px rgba(0,0,0,0.6)}
+.g1{right:6%;top:10%;width:380px;height:520px;transform:rotate(-6deg)}
+.g2{right:12%;top:46%;width:240px;height:160px;transform:rotate(-8deg);opacity:0.92}
+.g3{right:22%;top:28%;width:140px;height:100px;transform:rotate(-12deg);opacity:0.8}
 
-/* ===========================
-   HERO (CAMADA 1)
-   =========================== */
+/* HERO INNER */
+.hero-inner{position:relative;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.hero-copy{max-width:640px}
+.pre-slogan{font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.92);font-weight:700;margin-bottom:14px}
 
-.hero {
-    position: relative;
-    height: 100vh;
-    padding: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* TITLE with gradient text */
+.hero-title{
+  font-family:'Montserrat',sans-serif;
+  font-size:64px;
+  line-height:1.02;
+  font-weight:800;
+  margin-bottom:18px;
+  background:var(--accent-gradient);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 12px 34px rgba(0,0,0,0.55);
 }
 
-/* LOGO */
-.hero-logo img {
-    width: 180px;
+/* subtitle */
+.hero-sub{
+  font-size:18px;color:rgba(255,255,255,0.94);line-height:1.6;margin-bottom:28px;text-shadow:0 6px 18px rgba(0,0,0,0.45)
 }
 
-/* TEXTO PRINCIPAL */
-.hero-title {
-    font-size: 3.3rem;
-    font-weight: 900;
-    margin-bottom: 20px;
-    max-width: 600px;
+/* CTAs */
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 28px;border-radius:999px;text-decoration:none;font-weight:800;border:0;cursor:pointer}
+.btn-primary{background:var(--accent-gradient);color:#fff;box-shadow:0 20px 55px rgba(255,120,30,0.12)}
+.btn-outline{background:rgba(255,255,255,0.03);color:#fff;border:1px solid rgba(255,255,255,0.04)}
+
+/* HERO VISUAL */
+.hero-visual{width:46%;display:flex;justify-content:flex-end;align-items:center}
+.hero-phone{width:360px;max-width:44vw;filter:drop-shadow(0 40px 80px rgba(0,0,0,0.6));transform-origin:center bottom;transition:transform .35s ease}
+
+/* sections general */
+.section-title{font-family:'Montserrat',sans-serif;font-size:32px;margin-bottom:18px;font-weight:800}
+.lead{font-size:18px;color:rgba(255,255,255,0.95);line-height:1.7;max-width:920px}
+
+/* SERVICES */
+.services-row{display:flex;gap:20px;flex-wrap:wrap}
+.service-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:22px;border-radius:14px;min-width:220px;flex:1;border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px);box-shadow:0 12px 40px rgba(0,0,0,0.6)}
+.service-icon{margin-bottom:12px}
+.service-btn{display:block;width:100%;padding:12px;border-radius:12px;background:var(--accent-gradient);color:#fff;font-weight:800;border:0;margin-bottom:8px}
+.service-label{font-size:14px;color:rgba(255,255,255,0.9)}
+
+/* TESTIMONIALS */
+.testimonials-grid{display:flex;gap:18px;flex-wrap:wrap}
+.testimonial-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px;flex:1;min-width:260px;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+.testimonial-card blockquote{color:#fff;font-size:15px;line-height:1.66;margin-bottom:12px}
+.testimonial-author .accent-gradient{font-weight:800}
+
+/* CONTACT */
+.contact-grid{display:flex;gap:30px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.contact-info a{color:rgba(255,255,255,0.95)}
+.btn-cta.big{padding:18px 36px;border-radius:12px;font-size:18px;background:var(--accent-gradient);font-weight:900}
+
+/* FOOTER */
+.site-footer{padding:28px 6%;background:#060606;color:rgba(255,255,255,0.45);text-align:center}
+
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.9,.3,1)}
+.show{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media (max-width:1100px){
+  .hero-title{font-size:54px}
+  .hero-phone{width:320px}
 }
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    max-width: 600px;
-    opacity: 0.85;
-    line-height: 1.6;
-    margin-bottom: 40px;
+@media (max-width:880px){
+  .hero{min-height:72vh;padding:36px 20px}
+  .hero-inner{flex-direction:column;align-items:flex-start}
+  .hero-visual{width:100%;margin-top:18px;justify-content:center}
+  .hero-phone{width:58%}
+  .hero-title{font-size:38px}
 }
-
-/* BOTÃO WHATSAPP */
-.btn-whatsapp {
-    background: linear-gradient(135deg, #ff0000, #ff7a00);
-    color: #fff;
-    padding: 14px 32px;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
-    transition: .3s;
-}
-
-.btn-whatsapp:hover {
-    transform: scale(1.06);
-    box-shadow: 0 0 20px rgba(255, 100, 0, 0.7);
-}
-
-.btn-whatsapp.large {
-    padding: 18px 50px;
-    font-size: 1.3rem;
-}
-
-/* CELULAR */
-.hero-phone img {
-    width: 420px;
-    filter: drop-shadow(0 0 25px rgba(255, 120, 0, 0.6));
-    animation: float 4s ease-in-out infinite;
-}
-
-/* ANIMAÇÃO FLUTUANTE */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0px); }
-}
-
-/* CAMADAS DO FUNDO */
-.hero-layer {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    opacity: 0.15;
-    pointer-events: none;
-}
-
-.layer1 { background-image: url("images/bg-layer-1.jpg"); }
-.layer2 { background-image: url("images/bg-layer-2.png"); }
-.layer3 { background-image: url("images/bg-layer-3.png"); }
-.layer4 { background-image: url("images/bg-layer-4.png"); opacity: 0.20; }
-
-
-/* ===========================
-   SEÇÕES GERAIS
-   =========================== */
-
-.section {
-    padding: 120px 60px;
-    position: relative;
-}
-
-.section-title {
-    font-size: 2.6rem;
-    margin-bottom: 30px;
-}
-
-.section-text {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    max-width: 900px;
-}
-
-
-/* ===========================
-   SERVIÇOS
-   =========================== */
-
-.service-buttons {
-    display: flex;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.service-box {
-    text-align: center;
-}
-
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-.service-btn {
-    padding: 12px 25px;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #ff0000, #ff7a00);
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.service-btn:hover {
-    transform: scale(1.05);
-}
-
-
-/* ===========================
-   CLIENTES
-   =========================== */
-
-.client-list {
-    display: flex;
-    gap: 30px;
-}
-
-.client-card {
-    width: 33%;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 25px;
-    min-height: 200px;
-}
-
-.client-name {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-}
-
-.client-text {
-    font-size: 1rem;
-    opacity: 0.85;
-}
-
-
-/* ===========================
-   CONTATO
-   =========================== */
-
-.contact {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.contact-item {
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-}
-
-.contact-right {
-    text-align: right;
-}
-
-
-/* ===========================
-   ANIMAÇÕES DE ENTRADA
-   =========================== */
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 1s ease;
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
+@media (max-width:520px){
+  .hero-title{font-size:28px}
+  .hero-sub{font-size:15px}
+  .brand-logo{height:44px}
+  .service-card{width:100%}
+  .testimonial-card{width:100%}
 }
