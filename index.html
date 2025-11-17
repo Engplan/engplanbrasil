@@ -1,177 +1,154 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Engplan Brasil — Engenharia e Gestão de Obras</title>
-  <meta name="description" content="Engplan Brasil - Projetos, gestão de obras, regularização e laudos. Planejamento com qualidade e segurança.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engplan Brasil</title>
 
-  <!-- GOOGLE FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HEADER (logo only) -->
-  <header class="site-header" role="banner">
-    <div class="header-inner container">
-      <a href="#" class="brand" aria-label="Engplan Brasil">
-        <img src="images/logo-engplan-white.png" alt="Engplan Brasil" class="brand-logo">
-      </a>
-    </div>
-  </header>
+    <!-- ============ HERO / BANNER ============ -->
+    <header class="hero">
 
-  <main id="main">
-    <!-- HERO / CAMADA 1 -->
-    <section id="hero" class="hero">
-      <!-- decorative background (CSS generated) -->
-      <div class="hero-bg" aria-hidden="true"></div>
-
-      <!-- GLASS + NEON shapes (visual depth elements) -->
-      <div class="glass-shapes" aria-hidden="true">
-        <span class="glass g1"></span>
-        <span class="glass g2"></span>
-        <span class="glass g3"></span>
-      </div>
-
-      <!-- Left column: text -->
-      <div class="container hero-inner">
-        <div class="hero-copy fade-in">
-          <div class="pre-slogan">PROGRESSO EXIGE PLANEJAMENTO</div>
-
-          <h1 class="hero-title">O futuro se move com quem planeja bem.</h1>
-
-          <p class="hero-sub">
-            A Engplan Brasil acompanha cada etapa do seu projeto, garantindo qualidade e regularidade do início ao fim.
-            <br>
-            Soluções completas em projetos, gestão, regularização e laudos.
-          </p>
-
-          <div class="hero-ctas">
-            <a class="btn btn-primary btn-whatsapp" href="https://wa.me/55219972433725" target="_blank" rel="noopener">
-              <!-- WhatsApp icon (inline, keeps color control) -->
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16.7 13.5c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.8.1-.3.2-1.1.9-1.3 1.1-.2.3-.5.4-.8.1-.3-.3-1.3-1.1-2.4-1.5-.9-.3-1.6-.7-1.6-1.6 0-.8.6-1.5 1.6-1.8.2 0 .4-.1.6-.1.3 0 .6 0 .9.1.2.1.4.1.6.1.2 0 .4-.1.6-.1.2 0 .4-.2.6-.4.2-.2.4-.6.4-1 .1-.4 0-.8-.1-1.1-.2-.6-.9-1-1.6-1-2.2 0-4 1.8-4 4 0 1.9 1.7 3.5 3.7 4 1.1.3 1.6.4 2 .5.5.1 1.1.4 1.3.5.4.2.6.1.8-.2.2-.3.4-.8.5-1.2.1-.5 0-.7-.1-.8z" fill="#000"/></svg>
-              WHATSAPP
-            </a>
-
-            <a href="#contato" class="btn btn-outline">ORÇAMENTO</a>
-          </div>
+        <div class="hero-logo">
+            <img src="images/logo.png" alt="Engplan Brasil">
         </div>
 
-        <!-- Right column: celular mockup -->
-        <div class="hero-visual fade-in" aria-hidden="true">
-          <img src="images/celular.png" alt="Engenheiro no celular" class="hero-phone">
-        </div>
-      </div>
-    </section>
+        <div class="hero-content">
 
-    <!-- CAMADA 2 — SOBRE -->
-    <section id="sobre" class="section about fade-in">
-      <div class="container">
-        <h2 class="section-title accent-gradient">Sobre a ENGPLAN BRASIL</h2>
-        <p class="lead">
-          A Engplan Brasil é uma empresa especializada em soluções completas em engenharia, atuando com projetos,
-          gestão de obras, regularização, laudos e perícias. Nosso compromisso é garantir segurança, eficiência e qualidade
-          em cada etapa, oferecendo suporte técnico confiável para clientes que buscam planejamento, organização e resultados assertivos.
+            <!-- TEXTO DO BANNER -->
+            <div class="hero-text">
+                <h1>O futuro se move com quem planeja bem.</h1>
+
+                <p>
+                    A Engplan Brasil acompanha cada etapa do seu projeto, garantindo qualidade e regularidade do início ao fim.
+                    Soluções completas em projetos, gestão, regularização e laudos.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5521972433725" class="btn-primary">Fale Conosco</a>
+                    <a href="https://wa.me/5521972433725" class="btn-whatsapp">WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- IMAGEM DO ENGENHEIRO -->
+            <div class="hero-img">
+                <img src="images/engenheiro.png" alt="Engenheiro">
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+
+    <!-- ============ SOBRE ============ -->
+    <section class="sobre section">
+
+        <h2 class="titulo-gradiente">Sobre a ENGPLAN BRASIL</h2>
+
+        <p>
+            A Engplan Brasil é uma empresa especializada em soluções completas em engenharia, atuando com projetos,
+            gestão de obras, regularização, laudos e perícias. Nosso compromisso é garantir segurança, eficiência e
+            qualidade em cada etapa, oferecendo suporte técnico confiável para clientes que buscam planejamento,
+            organização e resultados assertivos.
         </p>
-      </div>
+
     </section>
 
-    <!-- CAMADA 3 — SERVIÇOS -->
-    <section id="servicos" class="section services fade-in">
-      <div class="container">
-        <h2 class="section-title accent-gradient">SERVIÇOS</h2>
 
-        <div class="services-row">
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">
-              <!-- SVG icon -->
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none"><path d="M3 13h18" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6h12v12H6z" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+
+    <!-- ============ SERVIÇOS ============ -->
+    <section class="servicos section">
+
+        <h2 class="titulo-gradiente">SERVIÇOS</h2>
+
+        <div class="servicos-container">
+
+            <div class="servico-card">
+                <div class="icone">📐</div>
+                <button class="btn-servico">PROJETOS E GESTÃO</button>
             </div>
-            <button class="service-btn">PROJETOS E GESTÃO</button>
-            <div class="service-label">Projetos executivos, planejamento e coordenação.</div>
-          </article>
 
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 7h14" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="servico-card">
+                <div class="icone">📄</div>
+                <button class="btn-servico">REGULARIZAÇÃO</button>
             </div>
-            <button class="service-btn">REGULARIZAÇÃO</button>
-            <div class="service-label">Aprovações, documentação e acompanhamento.</div>
-          </article>
 
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="servico-card">
+                <div class="icone">📊</div>
+                <button class="btn-servico">LAUDOS</button>
             </div>
-            <button class="service-btn">LAUDOS</button>
-            <div class="service-label">Laudos técnicos, vistorias e perícias.</div>
-          </article>
+
         </div>
-      </div>
+
     </section>
 
-    <!-- CAMADA 4 — CLIENTES -->
-    <section id="clientes" class="section testimonials fade-in">
-      <div class="container">
-        <h2 class="section-title accent-gradient">CLIENTES</h2>
 
-        <div class="testimonials-grid">
-          <figure class="testimonial-card">
-            <blockquote>
-              "Contratei a Engplan para o gerenciamento da minha obra e recebi um atendimento profissional do início ao fim.
-              Entrega dentro do prazo e muita atenção aos detalhes."
-            </blockquote>
-            <figcaption class="testimonial-author"><span class="accent-gradient">— Marina Costa</span></figcaption>
-          </figure>
 
-          <figure class="testimonial-card">
-            <blockquote>
-              "A equipe técnica foi impecável. Os laudos apresentados evitaram problemas futuros e otimizaram o cronograma."
-            </blockquote>
-            <figcaption class="testimonial-author"><span class="accent-gradient">— Roberto Silva</span></figcaption>
-          </figure>
 
-          <figure class="testimonial-card">
-            <blockquote>
-              "Atendimento transparente e muita competência. Recomendo a Engplan para projetos residenciais e comerciais."
-            </blockquote>
-            <figcaption class="testimonial-author"><span class="accent-gradient">— Ana Paula</span></figcaption>
-          </figure>
+    <!-- ============ CLIENTES ============ -->
+    <section class="clientes section">
+
+        <h2 class="titulo-gradiente">CLIENTES</h2>
+
+        <div class="clientes-container">
+
+            <div class="cliente-card">
+                <h3 class="nome-cliente titulo-gradiente">Carlos Henrique</h3>
+                <p class="depoimento">"Serviço impecável! A Engplan Brasil entregou profissionalismo, rapidez e muita competência."</p>
+            </div>
+
+            <div class="cliente-card">
+                <h3 class="nome-cliente titulo-gradiente">Mariana Rocha</h3>
+                <p class="depoimento">"Equipe extremamente qualificada. Meu projeto ficou acima das expectativas."</p>
+            </div>
+
+            <div class="cliente-card">
+                <h3 class="nome-cliente titulo-gradiente">Douglas Pereira</h3>
+                <p class="depoimento">"Recomendo fortemente! Transparência e qualidade do início ao fim."</p>
+            </div>
+
         </div>
-      </div>
+
     </section>
 
-    <!-- CAMADA 5 — FALE CONOSCO -->
-    <section id="contato" class="section contact fade-in">
-      <div class="container contact-grid">
-        <div class="contact-info">
-          <h2 class="section-title accent-gradient">Fale conosco</h2>
-          <p><strong>Telefone:</strong> <a href="tel:+55219972433725">(21) 97243-3725</a></p>
-          <p><strong>E-mail:</strong> <a href="mailto:engplanbrasil@gmail.com">engplanbrasil@gmail.com</a></p>
-          <p><strong>Redes sociais:</strong> <a href="https://instagram.com/engplanbrasil" target="_blank" rel="noopener">@engplanbrasil</a></p>
+
+
+
+    <!-- ============ CONTATO ============ -->
+    <section class="contato section">
+
+        <div class="contato-esquerda">
+
+            <h2 class="titulo-gradiente">Fale Conosco</h2>
+
+            <div class="contato-info">
+                <p><strong>Telefone:</strong> <span>(21) 97243-3725</span></p>
+                <p><strong>Email:</strong> <span>engplanbrasil@gmail.com</span></p>
+                <p><strong>Redes Sociais:</strong> <span>@engplanbrasil</span></p>
+            </div>
+
         </div>
 
-        <div class="contact-cta">
-          <a class="btn btn-cta big" href="https://wa.me/55219972433725" target="_blank" rel="noopener">WHATSAPP</a>
+        <div class="contato-direita">
+            <a href="https://wa.me/5521972433725" class="btn-whatsapp-big">WhatsApp</a>
         </div>
-      </div>
+
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© <span id="year"></span> Engplan Brasil — Todos os direitos reservados</div>
-      <div>Feito com foco em planejamento e qualidade.</div>
-    </div>
-  </footer>
 
-  <!-- SCRIPTS -->
-  <script src="script.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+
+    <!-- JS -->
+    <script src="script.js"></script>
 </body>
 </html>
