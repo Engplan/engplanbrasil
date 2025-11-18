@@ -6,13 +6,31 @@ body, html {
     scroll-behavior: smooth;
 }
 
-.layer {
+section {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* Fundo das camadas */
+.bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
     z-index: 1;
+    pointer-events: none;
     transition: transform 0.2s ease-out;
+}
+
+/* Conteúdo fixo */
+.section-content {
+    position: relative;
+    z-index: 2;
 }
 
 /* Hero / Banner */
@@ -20,16 +38,12 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 80px;
     min-height: 90vh;
+    padding: 80px;
     overflow: hidden;
 }
 
-.hero-content {
-    max-width: 600px;
-    z-index: 2;
-}
-
+.hero-content { max-width: 600px; z-index: 2; }
 .hero-title { font-size: 3rem; margin-bottom: 20px; }
 .hero-subtitle { font-size: 1.2rem; margin-bottom: 30px; }
 
@@ -79,13 +93,7 @@ body, html {
     object-fit: cover;
 }
 
-/* Seções */
-.sobre, .servicos, .clientes, .contato {
-    padding: 80px 20px;
-    text-align: center;
-    color: #fff;
-}
-
+/* Grid serviços e clientes */
 .servicos-grid, .clientes-grid {
     display: flex;
     justify-content: center;
@@ -103,7 +111,5 @@ body, html {
 
 .servico-icon { font-size: 2rem; margin-bottom: 10px; }
 
-.contato-textos { margin-bottom: 20px; }
 .contato-info { margin: 5px 0; }
-
 .btn-primary.big { padding: 16px 40px; font-size: 1.2rem; }

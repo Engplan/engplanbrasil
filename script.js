@@ -1,13 +1,13 @@
-// Paralaxe por scroll
+// Paralaxe por scroll (apenas fundos)
 document.addEventListener("scroll", function() {
     const scrollTop = window.pageYOffset;
-    document.querySelectorAll(".layer").forEach(layer => {
+    document.querySelectorAll(".bg-layer").forEach(layer => {
         const depth = parseFloat(layer.getAttribute("data-depth"));
         layer.style.transform = `translateY(${scrollTop * depth}px)`;
     });
 });
 
-// Efeito 3D de mouse no banner
+// Efeito 3D de mouse no celular
 const hero = document.querySelector(".hero");
 const cellphone = document.querySelector(".hero-cellphone");
 
