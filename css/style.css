@@ -15,14 +15,13 @@ body, html {
     transition: transform 0.2s ease-out;
 }
 
-/* Hero / Banner */
 .hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 80px;
-    overflow: hidden;
     min-height: 90vh;
+    overflow: hidden;
 }
 
 .hero-content {
@@ -70,6 +69,7 @@ body, html {
     overflow: hidden;
     position: relative;
     perspective: 1000px;
+    transition: transform 0.1s ease-out;
 }
 
 .cellphone-screen {
@@ -83,7 +83,6 @@ body, html {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
 }
 
 /* Seções */
@@ -113,7 +112,6 @@ body, html {
     margin-bottom: 10px;
 }
 
-/* Contato */
 .contato-textos {
     margin-bottom: 20px;
 }
