@@ -22,7 +22,7 @@ body {
 }
 
 /* ================================ */
-/*  HERO (CAMADA 1)                */
+/*  HERO (TOPO)                    */
 /* ================================ */
 .hero {
     position: relative;
@@ -33,14 +33,18 @@ body {
     justify-content: space-between;
 }
 
+/* 🔥 Mantém a logo visível e alinhada */
+.logo {
+    width: 170px;
+    margin-bottom: 25px;
+    display: block;
+}
+
+/* Conteúdo */
 .hero-content {
     flex: 1;
     max-width: 600px;
-}
-
-.logo {
-    width: 180px;
-    margin-bottom: 30px;
+    z-index: 3;
 }
 
 .hero-title {
@@ -96,23 +100,25 @@ body {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
+/* Moldura */
 .mockup {
-    width: 260px;
-    height: 520px;
+    width: 250px;
+    height: 500px;
     background: linear-gradient(145deg, #ff8c1f, #cc5f00);
     border-radius: 45px;
     padding: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
-
     box-shadow:
         0 0 50px rgba(255, 122, 0, 0.5),
         inset 0 0 15px rgba(255, 255, 255, 0.25);
 }
 
+/* Vidro interno */
 .mockup-inner {
     width: 100%;
     height: 100%;
@@ -121,17 +127,17 @@ body {
     background: #000;
 }
 
-/* REDUÇÃO DO ENGENHEIRO (Agora 49% do tamanho original) */
+/* IMAGEM DO ENGENHEIRO – agora 40% menor + posição centralizada */
 .mockup-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transform: scale(0.49);   /* Ajuste final solicitado */
+    transform: scale(0.40);     /* 🔥 40% do tamanho original */
     transform-origin: center;
 }
 
 /* ================================ */
-/*  SEÇÕES 2–5                     */
+/*  SEÇÕES GERAIS                  */
 /* ================================ */
 
 section {
@@ -155,7 +161,7 @@ section {
 }
 
 /* ================================ */
-/*  CONTATO (CAMADA 5)             */
+/*  CONTATO                        */
 /* ================================ */
 
 .contato {
@@ -185,18 +191,38 @@ section {
 /* ================================ */
 
 @media (max-width: 1050px) {
+
     .hero {
         flex-direction: column;
         text-align: center;
         height: auto;
     }
 
+    .hero-content {
+        margin-bottom: 40px;
+    }
+
     .hero-cellphone {
-        margin-top: 40px;
+        margin-top: 10px;
+        transform: scale(0.95);
     }
 }
 
 @media (max-width: 780px) {
+
+    .logo {
+        width: 150px;
+        margin: 15px auto;
+    }
+
+    .hero-title {
+        font-size: 2.3rem;
+    }
+
+    .mockup {
+        transform: scale(0.85);
+    }
+
     .servicos-grid,
     .clientes-grid {
         grid-template-columns: 1fr;
