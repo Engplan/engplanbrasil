@@ -1,3 +1,4 @@
+/* Geral */
 body, html {
     margin: 0;
     padding: 0;
@@ -111,5 +112,38 @@ section {
 
 .servico-icon { font-size: 2rem; margin-bottom: 10px; }
 
-.contato-info { margin: 5px 0; }
-.btn-primary.big { padding: 16px 40px; font-size: 1.2rem; }
+/* Fale Conosco */
+.contato {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contato .section-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contato-info {
+    margin: 8px 0;
+    font-size: 1.1rem;
+}
+
+.contato-acao {
+    margin-top: 20px;
+}
+
+.contato-acao .btn-primary.big {
+    padding: 16px 40px;
+    font-size: 1.2rem;
+    display: inline-block;
+}

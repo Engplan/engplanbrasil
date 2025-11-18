@@ -1,4 +1,4 @@
-// Paralaxe por scroll (apenas fundos)
+// Paralaxe por scroll (fundos)
 document.addEventListener("scroll", function() {
     const scrollTop = window.pageYOffset;
     document.querySelectorAll(".bg-layer").forEach(layer => {
