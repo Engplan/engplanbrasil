@@ -1,115 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engplan Brasil</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engplan Brasil</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ===================== -->
-    <!--  BANNER 3D (CAMADA 1) -->
-    <!-- ===================== -->
-    <header class="hero">
-        <div class="hero-content">
-            <img src="images/logo.png" class="logo" alt="Logo Engplan Brasil">
-
-            <h1 class="hero-title">O futuro se move com quem planeja bem.</h1>
-            <p class="hero-subtitle">
-                A Engplan Brasil acompanha cada etapa do seu projeto, garantindo qualidade e regularidade do início ao fim.
-                Soluções completas em projetos, gestão, regularização e laudos.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="https://wa.me/5521972083284" class="btn-primary">Fale Conosco</a>
-                <a href="https://wa.me/5521972083284" class="btn-outline">WhatsApp</a>
-            </div>
-        </div>
-
-        <!-- Celular mockup com engenheiro e efeito 3D -->
-        <div class="hero-cellphone" data-speed="2">
-            <div class="cellphone-screen">
-                <img src="images/engenheiro.png" alt="Engenheiro" class="engenheiro">
-            </div>
-        </div>
-    </header>
-
-    <!-- ===================== -->
-    <!--  SOBRE (CAMADA 2) -->
-    <!-- ===================== -->
-    <section class="sobre">
-        <h2 class="section-title">Sobre a ENGPLAN BRASIL</h2>
-        <p class="section-text">
-            A Engplan Brasil é uma empresa especializada em soluções completas em engenharia, atuando com projetos,
-            gestão de obras, regularização, laudos e perícias. Nosso compromisso é garantir segurança, eficiência e qualidade
-            em cada etapa, oferecendo suporte técnico confiável para clientes que buscam planejamento, organização
-            e resultados assertivos.
+<!-- ===================== -->
+<!-- BANNER 3D (CAMADA 1) -->
+<!-- ===================== -->
+<header class="hero layer" data-depth="0.8" style="background-image: url('images/bg-banner.jpg');">
+    <div class="hero-content">
+        <img src="images/logo.png" class="logo" alt="Logo Engplan Brasil">
+        <h1 class="hero-title">O futuro se move com quem planeja bem.</h1>
+        <p class="hero-subtitle">
+            A Engplan Brasil acompanha cada etapa do seu projeto, garantindo qualidade e regularidade do início ao fim.
         </p>
-    </section>
-
-    <!-- ===================== -->
-    <!--  SERVIÇOS (CAMADA 3) -->
-    <!-- ===================== -->
-    <section class="servicos">
-        <h2 class="section-title gradient">SERVIÇOS</h2>
-        <div class="servicos-grid">
-            <div class="servico-card">
-                <div class="servico-icon">📐</div>
-                <button class="servico-btn">PROJETOS E GESTÃO</button>
-            </div>
-            <div class="servico-card">
-                <div class="servico-icon">📄</div>
-                <button class="servico-btn">REGULARIZAÇÃO</button>
-            </div>
-            <div class="servico-card">
-                <div class="servico-icon">⚖️</div>
-                <button class="servico-btn">LAUDOS</button>
-            </div>
+        <div class="hero-buttons">
+            <a href="https://wa.me/5521972083284" class="btn-primary">Fale Conosco</a>
+            <a href="https://wa.me/5521972083284" class="btn-outline">WhatsApp</a>
         </div>
-    </section>
+    </div>
 
-    <!-- ===================== -->
-    <!-- CLIENTES (CAMADA 4) -->
-    <!-- ===================== -->
-    <section class="clientes">
-        <h2 class="section-title gradient">CLIENTES</h2>
-        <div class="clientes-grid">
-            <div class="cliente-box">
-                <h3 class="cliente-nome gradient">João Mendes</h3>
-                <p class="cliente-depo">"A Engplan conduziu todo meu processo com rapidez, atenção e transparência. Recomendo muito!"</p>
-            </div>
-            <div class="cliente-box">
-                <h3 class="cliente-nome gradient">Patrícia Silva</h3>
-                <p class="cliente-depo">"Equipe extremamente profissional, me ajudaram na gestão completa da minha obra."</p>
-            </div>
-            <div class="cliente-box">
-                <h3 class="cliente-nome gradient">Carlos Alberto</h3>
-                <p class="cliente-depo">"Resolvi a regularização do meu imóvel sem dor de cabeça. Trabalho impecável."</p>
-            </div>
+    <div class="hero-cellphone layer" data-depth="1.2">
+        <div class="cellphone-screen">
+            <img src="images/engenheiro.png" alt="Engenheiro" class="engenheiro">
         </div>
-    </section>
+    </div>
+</header>
 
-    <!-- ===================== -->
-    <!-- FALE CONOSCO (CAMADA 5) -->
-    <!-- ===================== -->
-    <section class="contato">
-        <div class="contato-textos">
-            <h2 class="section-title gradient">Fale Conosco</h2>
-            <p class="contato-info">📞 Telefone: (21) 97243-3725</p>
-            <p class="contato-info">📧 E-mail: engplanbrasil@gmail.com</p>
-            <p class="contato-info">🌐 Redes sociais: @engplanbrasil</p>
-        </div>
-        <div class="contato-acao">
-            <a href="https://wa.me/5521972083284" class="btn-primary big">WhatsApp</a>
-        </div>
-    </section>
+<!-- ===================== -->
+<!-- SOBRE (CAMADA 2) -->
+<!-- ===================== -->
+<section class="sobre layer" data-depth="0.5" style="background-image: url('images/bg-sobre.jpg');">
+    <h2 class="section-title">Sobre a ENGPLAN BRASIL</h2>
+    <p class="section-text">
+        A Engplan Brasil é uma empresa especializada em soluções completas em engenharia, atuando com projetos,
+        gestão de obras, regularização, laudos e perícias. Nosso compromisso é garantir segurança, eficiência e qualidade.
+    </p>
+</section>
 
-    <script src="script.js"></script>
+<!-- ===================== -->
+<!-- SERVIÇOS (CAMADA 3) -->
+<!-- ===================== -->
+<section class="servicos layer" data-depth="0.3" style="background-image: url('images/bg-servicos.jpg');">
+    <h2 class="section-title gradient">SERVIÇOS</h2>
+    <div class="servicos-grid">
+        <div class="servico-card">
+            <div class="servico-icon">📐</div>
+            <button class="servico-btn">PROJETOS E GESTÃO</button>
+        </div>
+        <div class="servico-card">
+            <div class="servico-icon">📄</div>
+            <button class="servico-btn">REGULARIZAÇÃO</button>
+        </div>
+        <div class="servico-card">
+            <div class="servico-icon">⚖️</div>
+            <button class="servico-btn">LAUDOS</button>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== -->
+<!-- CLIENTES (CAMADA 4) -->
+<!-- ===================== -->
+<section class="clientes layer" data-depth="0.2" style="background-image: url('images/bg-clientes.jpg');">
+    <h2 class="section-title gradient">CLIENTES</h2>
+    <div class="clientes-grid">
+        <div class="cliente-box">
+            <h3 class="cliente-nome gradient">João Mendes</h3>
+            <p class="cliente-depo">"A Engplan conduziu todo meu processo com rapidez, atenção e transparência. Recomendo muito!"</p>
+        </div>
+        <div class="cliente-box">
+            <h3 class="cliente-nome gradient">Patrícia Silva</h3>
+            <p class="cliente-depo">"Equipe extremamente profissional, me ajudaram na gestão completa da minha obra."</p>
+        </div>
+        <div class="cliente-box">
+            <h3 class="cliente-nome gradient">Carlos Alberto</h3>
+            <p class="cliente-depo">"Resolvi a regularização do meu imóvel sem dor de cabeça. Trabalho impecável."</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== -->
+<!-- FALE CONOSCO (CAMADA 5) -->
+<!-- ===================== -->
+<section class="contato layer" data-depth="0.1" style="background-image: url('images/bg-contato.jpg');">
+    <div class="contato-textos">
+        <h2 class="section-title gradient">Fale Conosco</h2>
+        <p class="contato-info">📞 Telefone: (21) 97243-3725</p>
+        <p class="contato-info">📧 E-mail: engplanbrasil@gmail.com</p>
+        <p class="contato-info">🌐 Redes sociais: @engplanbrasil</p>
+    </div>
+    <div class="contato-acao">
+        <a href="https://wa.me/5521972083284" class="btn-primary big">WhatsApp</a>
+    </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
