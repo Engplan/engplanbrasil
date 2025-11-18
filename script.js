@@ -1,22 +1,11 @@
-// Paralaxe do celular e glow
-const hero = document.querySelector(".hero");
-const cellphone = document.querySelector(".hero-cellphone");
+document.addEventListener("mousemove", (e) => {
+    const phone = document.querySelector(".hero-cellphone");
+    if (!phone) return;
 
-hero.addEventListener("mousemove", (e) => {
-    const { width, height } = hero.getBoundingClientRect();
-    const x = e.clientX - width / 2;
-    const y = e.clientY - height / 2;
+    const speed = 20;
 
-    const rotateX = (y / height) * 15;
-    const rotateY = (x / width) * 15;
+    let x = (window.innerWidth / 2 - e.clientX) / speed;
+    let y = (window.innerHeight / 2 - e.clientY) / speed;
 
-    if(cellphone){
-        cellphone.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    }
-});
-
-hero.addEventListener("mouseleave", () => {
-    if(cellphone){
-        cellphone.style.transform = `rotateX(0deg) rotateY(0deg)`;
-    }
+    phone.style.transform = `translate(${x}px, ${y}px)`;
 });
