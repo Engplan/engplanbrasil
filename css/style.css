@@ -15,6 +15,7 @@ body, html {
     transition: transform 0.2s ease-out;
 }
 
+/* Hero / Banner */
 .hero {
     display: flex;
     justify-content: space-between;
@@ -29,15 +30,8 @@ body, html {
     z-index: 2;
 }
 
-.hero-title {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
+.hero-title { font-size: 3rem; margin-bottom: 20px; }
+.hero-subtitle { font-size: 1.2rem; margin-bottom: 30px; }
 
 .hero-buttons .btn-primary {
     background: #ff7a00;
@@ -107,20 +101,9 @@ body, html {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.servico-icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
+.servico-icon { font-size: 2rem; margin-bottom: 10px; }
 
-.contato-textos {
-    margin-bottom: 20px;
-}
+.contato-textos { margin-bottom: 20px; }
+.contato-info { margin: 5px 0; }
 
-.contato-info {
-    margin: 5px 0;
-}
-
-.btn-primary.big {
-    padding: 16px 40px;
-    font-size: 1.2rem;
-}
+.btn-primary.big { padding: 16px 40px; font-size: 1.2rem; }

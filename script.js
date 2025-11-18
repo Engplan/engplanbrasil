@@ -20,12 +20,12 @@ hero.addEventListener("mousemove", (e) => {
     const rotateY = (x / width) * 15;
 
     if(cellphone){
-        cellphone.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        cellphone.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
     }
 });
 
 hero.addEventListener("mouseleave", () => {
     if(cellphone){
-        cellphone.style.transform = `rotateX(0deg) rotateY(0deg)`;
+        cellphone.style.transform = `rotateX(0deg) rotateY(0deg) translateZ(0)`;
     }
 });
