@@ -1,51 +1,52 @@
+/* ===================== */
 /* Geral */
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    background: #111;
     color: #fff;
     scroll-behavior: smooth;
 }
 
-section {
-    position: relative;
-    overflow: hidden;
-    padding: 80px 20px;
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Fundo das camadas */
-.bg-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
-    pointer-events: none;
-    transition: transform 0.2s ease-out;
+.gradient {
+    background: linear-gradient(90deg, #ff7a00, #ffa500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Conteúdo fixo */
-.section-content {
-    position: relative;
-    z-index: 2;
-}
-
-/* Hero / Banner */
+/* ===================== */
+/* Hero / Banner 3D */
 .hero {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 90vh;
     padding: 80px;
     overflow: hidden;
+    background: linear-gradient(180deg, #1a1a1a, #111);
 }
 
-.hero-content { max-width: 600px; z-index: 2; }
-.hero-title { font-size: 3rem; margin-bottom: 20px; }
-.hero-subtitle { font-size: 1.2rem; margin-bottom: 30px; }
+.hero-content {
+    max-width: 600px;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
 
 .hero-buttons .btn-primary {
     background: #ff7a00;
@@ -55,6 +56,11 @@ section {
     text-decoration: none;
     color: #fff;
     font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.hero-buttons .btn-primary:hover {
+    filter: brightness(1.1);
 }
 
 .hero-buttons .btn-outline {
@@ -64,9 +70,15 @@ section {
     text-decoration: none;
     color: #fff;
     font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-/* Celular mockup */
+.hero-buttons .btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* ===================== */
+/* Celular mockup / engenheiro */
 .hero-cellphone {
     width: 220px;
     height: 440px;
@@ -77,7 +89,7 @@ section {
     overflow: hidden;
     position: relative;
     perspective: 1000px;
-    transition: transform 0.1s ease-out;
+    z-index: 2;
 }
 
 .cellphone-screen {
@@ -91,9 +103,16 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-/* Grid serviços e clientes */
+/* ===================== */
+/* Seções */
+.sobre, .servicos, .clientes, .contato {
+    padding: 80px 20px;
+    text-align: center;
+}
+
 .servicos-grid, .clientes-grid {
     display: flex;
     justify-content: center;
@@ -102,72 +121,28 @@ section {
 }
 
 .servico-card, .cliente-box {
-    background: rgba(0,0,0,0.6);
+    background: #1a1a1a;
     padding: 20px;
     border-radius: 12px;
     width: 250px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.servico-icon { font-size: 2rem; margin-bottom: 10px; }
-
-/* FALE CONOSCO */
-.contato {
-    position: relative;
-    overflow: hidden;
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    padding: 80px 40px;
+.servico-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
-.contato-grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    flex-wrap: wrap;
-}
-
+/* Contato */
 .contato-textos {
-    text-align: left;
-    max-width: 600px;
-    flex: 1;
-}
-
-.contato-textos .section-title {
     margin-bottom: 20px;
 }
 
 .contato-info {
-    margin: 8px 0;
-    font-size: 1.1rem;
+    margin: 5px 0;
 }
 
-.contato-acao {
-    flex: 0 0 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contato-acao .btn-primary.big {
+.btn-primary.big {
     padding: 16px 40px;
     font-size: 1.2rem;
-}
-
-/* Responsivo */
-@media screen and (max-width: 900px){
-    .contato-grid {
-        flex-direction: column;
-        text-align: center;
-    }
-    .contato-textos, .contato-acao {
-        flex: 1 1 100%;
-        margin-bottom: 20px;
-    }
 }
