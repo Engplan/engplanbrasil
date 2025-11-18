@@ -1,11 +1,8 @@
 document.addEventListener("mousemove", (e) => {
-    const phone = document.querySelector(".hero-cellphone");
-    if (!phone) return;
-
-    const speed = 20;
-
-    let x = (window.innerWidth / 2 - e.clientX) / speed;
-    let y = (window.innerHeight / 2 - e.clientY) / speed;
-
-    phone.style.transform = `translate(${x}px, ${y}px)`;
+    const layers = document.querySelectorAll("[data-speed]");
+    layers.forEach(layer => {
+        const speed = layer.getAttribute("data-speed");
+        const x = (window.innerWidth - e.pageX * speed) / 200;
+        layer.style.transform = `translateX(${x}px)`;
+    });
 });
