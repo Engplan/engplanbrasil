@@ -121,14 +121,12 @@ body {
     background: #000;
 }
 
-/* ================================ */
-/*  REDUÇÃO DO ENGENHEIRO (30%)    */
-/* ================================ */
+/* REDUÇÃO DO ENGENHEIRO (Agora 49% do tamanho original) */
 .mockup-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;      /* Mantém proporção */
-    transform: scale(0.70);   /* 30% menor */
+    object-fit: contain;
+    transform: scale(0.49);   /* Ajuste final solicitado */
     transform-origin: center;
 }
 
