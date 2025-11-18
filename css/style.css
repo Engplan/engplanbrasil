@@ -11,7 +11,6 @@ section {
     position: relative;
     overflow: hidden;
     padding: 80px 20px;
-    text-align: center;
 }
 
 /* Fundo das camadas */
@@ -118,19 +117,27 @@ section {
     overflow: hidden;
     min-height: 400px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 80px 20px;
-    text-align: center;
+    padding: 80px 40px;
 }
 
-.contato .section-content {
+.contato-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
     position: relative;
     z-index: 2;
+}
+
+.contato-textos {
+    text-align: left;
     max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+
+.contato-textos .section-title {
+    margin-bottom: 20px;
 }
 
 .contato-info {
@@ -139,11 +146,12 @@ section {
 }
 
 .contato-acao {
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contato-acao .btn-primary.big {
     padding: 16px 40px;
     font-size: 1.2rem;
-    display: inline-block;
 }
