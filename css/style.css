@@ -50,7 +50,7 @@ section {
     font-weight: 600;
 }
 
-/* Mockup celular estilizado */
+/* Mockup celular com glow animado */
 .hero-cellphone {
     width: 220px;
     height: 440px;
@@ -90,7 +90,7 @@ section {
     object-fit: cover;
 }
 
-/* Reflexo de tela */
+/* Reflexo de tela animado */
 .screen-reflection {
     position: absolute;
     top: 0;
@@ -99,17 +99,29 @@ section {
     height: 100%;
     background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
     pointer-events: none;
+    animation: reflectionMove 4s infinite alternate;
 }
 
-/* Efeito de luz ao redor do celular */
-.light-effect {
+@keyframes reflectionMove {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(15deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(15deg); }
+}
+
+/* Glow animado externo */
+.glow-effect {
     position: absolute;
     top: -10px; left: -10px;
     width: calc(100% + 20px);
     height: calc(100% + 20px);
     border-radius: 50px;
-    box-shadow: 0 0 40px rgba(255,122,0,0.6);
+    box-shadow: 0 0 40px rgba(255,122,0,0.6), 0 0 60px rgba(255,122,0,0.4);
     pointer-events: none;
+    animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 40px rgba(255,122,0,0.6), 0 0 60px rgba(255,122,0,0.4); }
+    100% { box-shadow: 0 0 60px rgba(255,122,0,0.8), 0 0 90px rgba(255,122,0,0.6); }
 }
 
 /* Serviços e Clientes */

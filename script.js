@@ -1,4 +1,4 @@
-// Paralaxe do celular
+// Paralaxe do celular e glow
 const hero = document.querySelector(".hero");
 const cellphone = document.querySelector(".hero-cellphone");
 
