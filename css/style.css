@@ -111,7 +111,7 @@ section {
 
 .servico-icon { font-size: 2rem; margin-bottom: 10px; }
 
-/* Fale Conosco */
+/* FALE CONOSCO */
 .contato {
     position: relative;
     overflow: hidden;
@@ -130,7 +130,7 @@ section {
     margin: 0 auto;
     position: relative;
     z-index: 2;
-    flex-wrap: wrap; /* para mobile */
+    flex-wrap: wrap;
 }
 
 .contato-textos {
