@@ -127,13 +127,16 @@ section {
     align-items: center;
     width: 100%;
     max-width: 1200px;
+    margin: 0 auto;
     position: relative;
     z-index: 2;
+    flex-wrap: wrap; /* para mobile */
 }
 
 .contato-textos {
     text-align: left;
     max-width: 600px;
+    flex: 1;
 }
 
 .contato-textos .section-title {
@@ -146,6 +149,7 @@ section {
 }
 
 .contato-acao {
+    flex: 0 0 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,4 +158,16 @@ section {
 .contato-acao .btn-primary.big {
     padding: 16px 40px;
     font-size: 1.2rem;
+}
+
+/* Responsivo */
+@media screen and (max-width: 900px){
+    .contato-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+    .contato-textos, .contato-acao {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
 }
