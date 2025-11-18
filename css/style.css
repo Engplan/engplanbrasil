@@ -149,46 +149,33 @@ section {
     align-items: center;
     min-height: 400px;
     padding: 80px 40px;
-    background: #111;
 }
 
-.contato-textos {
-    text-align: left;
-    max-width: 600px;
+.contato-textos { text-align: left; max-width: 600px; }
+.contato-info { margin: 8px 0; font-size: 1.1rem; }
+.contato-acao { flex: 0 0 200px; display: flex; justify-content: center; align-items: center; }
+.contato-acao .btn-primary.big { padding: 16px 40px; font-size: 1.2rem; }
+
+/* ----------------- Media Queries ----------------- */
+/* Tablets */
+@media (max-width: 1024px){
+    .hero { flex-direction: column; padding: 60px 30px; text-align: center; }
+    .hero-cellphone { margin: 40px 0 0 0; width: 200px; height: 400px; }
+    .hero-title { font-size: 2.5rem; }
+    .servico-card, .cliente-box { width: 45%; }
+    .contato { flex-direction: column; text-align: center; }
+    .contato-acao { margin-top: 20px; }
 }
 
-.contato-info {
-    margin: 8px 0;
-    font-size: 1.1rem;
-}
-
-.contato-acao {
-    flex: 0 0 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contato-acao .btn-primary.big {
-    padding: 16px 40px;
-    font-size: 1.2rem;
-}
-
-/* Responsivo */
-@media screen and (max-width: 900px){
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-cellphone {
-        margin: 40px 0 0 0;
-    }
-    .contato {
-        flex-direction: column;
-        text-align: center;
-    }
-    .contato-textos, .contato-acao {
-        flex: 1 1 100%;
-        margin-bottom: 20px;
-    }
+/* Celulares */
+@media (max-width: 768px){
+    .hero { padding: 40px 20px; }
+    .hero-cellphone { width: 160px; height: 320px; margin: 30px auto 0 auto; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .hero-buttons .btn-primary, .hero-buttons .btn-outline { width: 100%; margin: 10px 0; }
+    .servico-card, .cliente-box { width: 100%; }
+    .contato { padding: 40px 15px; }
+    .contato-textos { margin-bottom: 20px; }
+    .contato-acao .btn-primary.big { width: 80%; }
 }
