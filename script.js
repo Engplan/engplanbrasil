@@ -1,7 +1,22 @@
-// Paralaxe simples do celular / engenheiro
-document.addEventListener("scroll", function() {
-    const speed = 2; // velocidade da paralaxe
-    const cellphone = document.querySelector(".hero-cellphone");
-    const offset = window.pageYOffset;
-    cellphone.style.transform = `translateY(${offset / speed}px) rotateX(${offset / 50}deg)`;
+// Paralaxe do celular
+const hero = document.querySelector(".hero");
+const cellphone = document.querySelector(".hero-cellphone");
+
+hero.addEventListener("mousemove", (e) => {
+    const { width, height } = hero.getBoundingClientRect();
+    const x = e.clientX - width / 2;
+    const y = e.clientY - height / 2;
+
+    const rotateX = (y / height) * 15;
+    const rotateY = (x / width) * 15;
+
+    if(cellphone){
+        cellphone.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+});
+
+hero.addEventListener("mouseleave", () => {
+    if(cellphone){
+        cellphone.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    }
 });
