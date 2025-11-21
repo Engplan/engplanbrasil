@@ -1,289 +1,140 @@
-/* ==========================
-   RESET E FONTES
-========================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ===========================================
+   Engplan Brasil — style.css
+   Visual: Glass + Neon (intensidade média)
+   Gradiente principal: linear-gradient(135deg,#ff0000,#ff7a00)
+   =========================================== */
+
+/* RESET */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: 'Poppins', sans-serif;
+  color:#fff;
+  background:#070707;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    background-color: #111;
-    line-height: 1.6;
+/* container */
+.container{max-width:1200px;margin:0 auto;padding:0 6%}
+
+/* header (logo) */
+.site-header{position:fixed;top:18px;left:0;right:0;z-index:200;pointer-events:none}
+.header-inner{display:flex;align-items:center;height:72px}
+.brand-logo{height:56px;display:block;pointer-events:auto}
+
+/* accent gradient */
+:root{
+  --accent-start:#ff0000;
+  --accent-end:#ff7a00;
+  --accent-gradient: linear-gradient(135deg,var(--accent-start),var(--accent-end));
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+/* common gradient text */
+.accent-gradient{
+  background-image:var(--accent-gradient);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 
-/* ==========================
-   BANNER HERO
-========================== */
-.hero {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
-    background: linear-gradient(135deg, #0d0d0d 0%, #111 100%);
+/* ================= HERO ================== */
+.section{padding:96px 0;position:relative;z-index:10}
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;padding-top:36px;padding-bottom:36px}
+
+/* hero background (CSS-only) */
+.hero-bg{
+  position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(1200px 400px at 85% 50%, rgba(255,120,30,0.12), transparent 18%),
+    linear-gradient(180deg, rgba(8,8,8,1), rgba(12,12,12,1));
+  filter:contrast(1.03) saturate(1.02);
+  pointer-events:none;
 }
 
-.hero-bg-layer {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
-    z-index: 1;
+/* decorative glass shapes */
+.glass-shapes{position:absolute;inset:0;z-index:5;pointer-events:none}
+.glass{position:absolute;border-radius:20px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 40px 80px rgba(0,0,0,0.6)}
+.g1{right:6%;top:10%;width:380px;height:520px;transform:rotate(-6deg)}
+.g2{right:12%;top:46%;width:240px;height:160px;transform:rotate(-8deg);opacity:0.92}
+.g3{right:22%;top:28%;width:140px;height:100px;transform:rotate(-12deg);opacity:0.8}
+
+/* HERO INNER */
+.hero-inner{position:relative;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.hero-copy{max-width:640px}
+.pre-slogan{font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.92);font-weight:700;margin-bottom:14px}
+
+/* TITLE with gradient text */
+.hero-title{
+  font-family:'Montserrat',sans-serif;
+  font-size:64px;
+  line-height:1.02;
+  font-weight:800;
+  margin-bottom:18px;
+  background:var(--accent-gradient);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 12px 34px rgba(0,0,0,0.55);
 }
 
-.hero-content {
-    position: relative;
-    z-index: 5;
-    max-width: 50%;
+/* subtitle */
+.hero-sub{
+  font-size:18px;color:rgba(255,255,255,0.94);line-height:1.6;margin-bottom:28px;text-shadow:0 6px 18px rgba(0,0,0,0.45)
 }
 
-.logo {
-    width: 180px;
-    margin-bottom: 20px;
+/* CTAs */
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 28px;border-radius:999px;text-decoration:none;font-weight:800;border:0;cursor:pointer}
+.btn-primary{background:var(--accent-gradient);color:#fff;box-shadow:0 20px 55px rgba(255,120,30,0.12)}
+.btn-outline{background:rgba(255,255,255,0.03);color:#fff;border:1px solid rgba(255,255,255,0.04)}
+
+/* HERO VISUAL */
+.hero-visual{width:46%;display:flex;justify-content:flex-end;align-items:center}
+.hero-phone{width:360px;max-width:44vw;filter:drop-shadow(0,40px,80px, rgba(0,0,0,0.6));transform-origin:center bottom;transition:transform .35s ease}
+
+/* sections general */
+.section-title{font-family:'Montserrat',sans-serif;font-size:32px;margin-bottom:18px;font-weight:800}
+.lead{font-size:18px;color:rgba(255,255,255,0.95);line-height:1.7;max-width:920px}
+
+/* SERVICES */
+.services-row{display:flex;gap:20px;flex-wrap:wrap}
+.service-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:22px;border-radius:14px;min-width:220px;flex:1;border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px);box-shadow:0 12px 40px rgba(0,0,0,0.6)}
+.service-icon{margin-bottom:12px}
+.service-btn{display:block;width:100%;padding:12px;border-radius:12px;background:var(--accent-gradient);color:#fff;font-weight:800;border:0;margin-bottom:8px}
+.service-label{font-size:14px;color:rgba(255,255,255,0.9)}
+
+/* TESTIMONIALS */
+.testimonials-grid{display:flex;gap:18px;flex-wrap:wrap}
+.testimonial-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px;flex:1;min-width:260px;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+.testimonial-card blockquote{color:#fff;font-size:15px;line-height:1.66;margin-bottom:12px}
+.testimonial-author .accent-gradient{font-weight:800}
+
+/* CONTACT */
+.contact-grid{display:flex;gap:30px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.contact-info a{color:rgba(255,255,255,0.95)}
+.btn-cta.big{padding:18px 36px;border-radius:12px;font-size:18px;background:var(--accent-gradient);font-weight:900}
+
+/* FOOTER */
+.site-footer{padding:28px 6%;background:#060606;color:rgba(255,255,255,0.45);text-align:center}
+
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.9,.3,1)}
+.show{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media (max-width:1100px){
+  .hero-title{font-size:54px}
+  .hero-phone{width:320px}
 }
-
-.hero-title {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 20px;
+@media (max-width:880px){
+  .hero{min-height:72vh;padding:36px 20px}
+  .hero-inner{flex-direction:column;align-items:flex-start}
+  .hero-visual{width:100%;margin-top:18px;justify-content:center}
+  .hero-phone{width:58%}
+  .hero-title{font-size:38px}
 }
-
-.hero-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-}
-
-.hero-buttons a {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 50px;
-    font-weight: 600;
-    margin-right: 15px;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background-color: #ff7a00;
-    color: #fff;
-}
-
-.btn-primary:hover {
-    background-color: #ff9500;
-}
-
-.btn-outline {
-    border: 2px solid #ff7a00;
-    color: #ff7a00;
-}
-
-.btn-outline:hover {
-    background-color: #ff7a00;
-    color: #111;
-}
-
-.hero-image {
-    position: relative;
-    z-index: 4;
-    max-width: 45%;
-}
-
-.hero-image img {
-    width: 100%;
-    max-width: 400px;
-    display: block;
-    position: absolute;
-    bottom: 0;
-    transition: transform 0.2s ease-out;
-}
-
-/* ==========================
-   SEÇÃO SOBRE
-========================== */
-.sobre {
-    padding: 100px 5%;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 30px;
-}
-
-.section-text {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.1rem;
-    color: #ccc;
-}
-
-/* ==========================
-   SEÇÃO SERVIÇOS
-========================== */
-.servicos {
-    padding: 100px 5%;
-    text-align: center;
-}
-
-.servicos-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.servico-card {
-    background-color: #1a1a1a;
-    padding: 30px;
-    border-radius: 20px;
-    width: 250px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.servico-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(255, 122, 0, 0.3);
-}
-
-.servico-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.servico-btn {
-    padding: 10px 20px;
-    border-radius: 50px;
-    border: none;
-    background-color: #ff7a00;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.servico-btn:hover {
-    background-color: #ff9500;
-}
-
-/* ==========================
-   SEÇÃO CLIENTES
-========================== */
-.clientes {
-    padding: 100px 5%;
-    text-align: center;
-    background-color: #111;
-}
-
-.clientes-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.cliente-box {
-    background-color: #1a1a1a;
-    padding: 25px;
-    border-radius: 20px;
-    width: 250px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cliente-box:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 28px rgba(255, 122, 0, 0.3);
-}
-
-.cliente-nome {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.cliente-depo {
-    font-size: 1rem;
-    color: #ccc;
-}
-
-/* ==========================
-   SEÇÃO CONTATO
-========================== */
-.contato {
-    padding: 100px 5%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: #111;
-}
-
-.contato-textos {
-    max-width: 45%;
-}
-
-.contato-info {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-}
-
-.contato-acao {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-primary.big {
-    padding: 15px 40px;
-    font-size: 1.2rem;
-}
-
-/* ==========================
-   GRADIENTES
-========================== */
-.gradient {
-    background: linear-gradient(90deg, #ff7a00, #ffc100);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* ==========================
-   RESPONSIVIDADE
-========================== */
-@media screen and (max-width: 1024px) {
-    .hero-content, .hero-image {
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .hero-image img {
-        position: relative;
-        bottom: auto;
-        margin: 0 auto;
-    }
-
-    .contato {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contato-textos, .contato-acao {
-        max-width: 100%;
-        margin-bottom: 30px;
-    }
-
-    .servicos-grid, .clientes-grid {
-        flex-direction: column;
-        align-items: center;
-    }
+@media (max-width:520px){
+  .hero-title{font-size:28px}
+  .hero-sub{font-size:15px}
+  .brand-logo{height:44px}
+  .service-card{width:100%}
+  .testimonial-card{width:100%}
 }
