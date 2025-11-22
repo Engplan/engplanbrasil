@@ -22,7 +22,7 @@ body{
 /* header (logo) */
 .site-header{position:fixed;top:18px;left:0;right:0;z-index:200;pointer-events:none}
 .header-inner{display:flex;align-items:center;height:72px}
-.brand-logo{height:56px;display:block;pointer-events:auto}
+.brand-logo{height:80px;display:block;pointer-events:auto}
 
 /* accent gradient */
 :root{
@@ -88,7 +88,7 @@ body{
 
 /* HERO VISUAL */
 .hero-visual{width:46%;display:flex;justify-content:flex-end;align-items:center}
-.hero-phone{width:360px;max-width:44vw;filter:drop-shadow(0,40px,80px, rgba(0,0,0,0.6));transform-origin:center bottom;transition:transform .35s ease}
+.hero-phone{width:500px;max-width:44vw;filter:drop-shadow(0,40px,80px, rgba(0,0,0,0.6));transform-origin:center bottom;transition:transform .35s ease}
 
 /* sections general */
 .section-title{font-family:'Montserrat',sans-serif;font-size:32px;margin-bottom:18px;font-weight:800}
