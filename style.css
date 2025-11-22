@@ -138,3 +138,15 @@ body{
   .service-card{width:100%}
   .testimonial-card{width:100%}
 }
+.hero-title-group {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre logo e texto */
+    justify-content: center; /* mantém tudo centralizado */
+}
+
+.hero-title-logo {
+    height: 60px; /* ajuste se quiser maior/menor */
+    width: auto;
+}
+
