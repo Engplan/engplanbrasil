@@ -1,0 +1,6 @@
+echo *.txt >> .gitignore
+echo *.zip >> .gitignore
+echo *.jar >> .gitignore
+bfg.jar
+echo "site base.zip" >> .gitignore
+"site base.zip" 
