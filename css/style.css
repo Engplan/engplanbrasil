@@ -1,216 +1,67 @@
-/* ================================ */
-/*  GERAL                          */
-/* ================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+:root {
+    --navy: #0a192f;
+    --orange: #f57c00;
+    --light-bg: #fdfdfd;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-body {
-    background: #0e0e0e;
-    color: #fff;
-    overflow-x: hidden;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Outfit', sans-serif; background: var(--light-bg); color: var(--navy); }
+
+/* HEADER PADRÃO (72px) */
+#main-header {
+    height: 72px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    position: fixed; width: 100%; top: 0; z-index: 1000;
+    display: flex; align-items: center; border-bottom: 1px solid #f0f0f0;
+}
+.header-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+.logo img { height: 38px; }
+nav a { text-decoration: none; color: var(--navy); font-weight: 600; margin-left: 25px; font-size: 13px; font-family: 'Space Grotesk'; }
+.btn-nav { background: var(--navy); color: white !important; padding: 10px 22px; border-radius: 4px; }
+
+/* HERO COM MÁSCARA GEOMÉTRICA */
+.hero-advanced { padding: 160px 0 100px; background: radial-gradient(circle at 80% 20%, #fef3e2 0%, #fff 50%); }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+.hero-text h1 { font-family: 'Space Grotesk'; font-size: 4rem; line-height: 1; margin: 20px 0; }
+.hero-text h1 span { color: var(--orange); }
+.tag-line { color: var(--orange); font-weight: 800; font-size: 12px; letter-spacing: 2px; }
+
+.hero-image-wrapper { position: relative; }
+.geometric-shape { 
+    clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%); 
+    overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.1); 
+}
+.geometric-shape img { width: 100%; display: block; filter: grayscale(20%); }
+
+.experience-badge {
+    position: absolute; bottom: -20px; left: -20px;
+    background: var(--navy); color: white; padding: 25px; border-radius: 8px;
+    text-align: center; box-shadow: 0 15px 35px rgba(10,25,47,0.3);
 }
 
-/* Títulos com gradiente */
-.gradient {
-    background: linear-gradient(90deg, #ff7a00, #ffb265);
-    -webkit-background-clip: text;
-    color: transparent;
+/* BARRA DE ESTATÍSTICAS */
+.stats-bar { background: var(--navy); color: white; padding: 60px 0; }
+.stats-grid { display: flex; justify-content: space-around; text-align: center; }
+.stat-item h2 { font-size: 3rem; color: var(--orange); font-family: 'Space Grotesk'; }
+
+/* SERVIÇOS INTERATIVOS */
+.servicos-interactive { padding: 100px 0; }
+.grid-modern { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.service-card { 
+    padding: 50px; border: 1px solid #eee; border-radius: 12px; 
+    transition: var(--transition); background: white;
 }
+.service-card:hover { transform: translateY(-15px); border-color: var(--orange); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+.num { font-family: 'Space Grotesk'; font-weight: 800; color: #f0f0f0; font-size: 3rem; display: block; margin-bottom: 10px; }
+.card-link { color: var(--orange); text-decoration: none; font-weight: 700; display: inline-block; margin-top: 20px; }
 
-/* ================================ */
-/*  HERO (CAMADA 1)                */
-/* ================================ */
-.hero {
-    position: relative;
-    height: 100vh;
-    padding: 120px 8%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+/* FOOTER */
+.footer-engplan { background: #050a15; color: white; padding: 80px 0 40px; }
+.footer-grid { display: flex; justify-content: space-between; align-items: center; }
 
-.hero-content {
-    flex: 1;
-    max-width: 600px;
-}
-
-.logo {
-    width: 180px;
-    margin-bottom: 30px;
-    display: block;
-}
-
-/* Títulos */
-.hero-title {
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 1.2;
-}
-
-.hero-subtitle {
-    margin: 20px 0;
-    font-size: 1.1rem;
-    opacity: 0.9;
-    max-width: 450px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-/* Botões */
-.btn-primary {
-    padding: 14px 28px;
-    background: #ff7a00;
-    color: #000;
-    font-weight: 700;
-    border-radius: 10px;
-    transition: .3s;
-}
-
-.btn-primary:hover {
-    filter: brightness(1.2);
-}
-
-.btn-outline {
-    padding: 14px 28px;
-    border: 2px solid #ff7a00;
-    color: #ff7a00;
-    border-radius: 10px;
-    font-weight: 700;
-    transition: .3s;
-}
-
-.btn-outline:hover {
-    background: #ff7a00;
-    color: #000;
-}
-
-/* ================================ */
-/*  MOCKUP DO CELULAR (LARANJA)    */
-/* ================================ */
-.hero-cellphone {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.mockup {
-    width: 260px;
-    height: 520px;
-    background: linear-gradient(145deg, #ff8c1f, #cc5f00);
-    border-radius: 45px;
-    padding: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    box-shadow:
-        0 0 50px rgba(255, 122, 0, 0.5),
-        inset 0 0 15px rgba(255, 255, 255, 0.25);
-}
-
-.mockup-inner {
-    width: 100%;
-    height: 100%;
-    border-radius: 35px;
-    overflow: hidden;
-    background: #000;
-}
-
-/* REDUÇÃO DO ENGENHEIRO (Escala final 49%) */
-.mockup-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transform: scale(0.49);
-    transform-origin: center;
-}
-
-/* ================================ */
-/*  SEÇÕES 2–5                     */
-/* ================================ */
-
-section {
-    padding: 120px 8%;
-    text-align: center;
-}
-
-.servicos-grid,
-.clientes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.servico-card,
-.cliente-box {
-    background: #151515;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(255, 122, 0, 0.15);
-}
-
-/* ================================ */
-/*  CONTATO (CAMADA 5)             */
-/* ================================ */
-
-.contato {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-}
-
-.contato-textos {
-    flex: 1;
-}
-
-.contato-acao {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.big {
-    padding: 20px 45px;
-    font-size: 1.3rem;
-}
-
-/* ================================ */
-/*  RESPONSIVIDADE                 */
-/* ================================ */
-
-@media (max-width: 1050px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-    }
-
-    .hero-cellphone {
-        margin-top: 40px;
-    }
-}
-
-@media (max-width: 780px) {
-    .servicos-grid,
-    .clientes-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contato {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .contato-acao {
-        margin-top: 30px;
-        justify-content: center;
-    }
+@media (max-width: 768px) {
+    .hero-grid, .grid-modern, .stats-grid { grid-template-columns: 1fr; flex-direction: column; gap: 40px; }
+    .hero-text h1 { font-size: 2.5rem; }
 }

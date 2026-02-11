@@ -3,163 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engplan Brasil | Projetos, Gestão e Laudos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <title>Engplan Brasil | Projetos, Laudos e Consultoria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --navy: #050a15;
+            --navy-light: #0a192f;
+            --orange: #f57c00;
+            --orange-glow: rgba(245, 124, 0, 0.5);
+            --white: #ffffff;
+            --text-gray: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+
+        /* FUNDO DE ENGENHARIA FIXO */
+        .bg-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: linear-gradient(to bottom, rgba(5, 10, 21, 0.9), rgba(5, 10, 21, 0.8)), 
+                        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600');
+            background-size: cover; background-position: center;
+        }
+
+        /* CURSOR CUSTOM */
+        .cursor-dot { width: 8px; height: 8px; background: var(--orange); position: fixed; border-radius: 50%; z-index: 10000; pointer-events: none; transform: translate(-50%, -50%); }
+        .cursor-outline { width: 40px; height: 40px; border: 2px solid var(--orange); position: fixed; border-radius: 50%; z-index: 9999; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.15s ease-out; }
+
+        /* HEADER */
+        #main-header { height: 72px; background: rgba(5, 10, 21, 0.8); backdrop-filter: blur(20px); position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .header-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo img { height: 35px; }
+        nav a { text-decoration: none; color: var(--white); font-weight: 600; margin-left: 25px; font-size: 13px; font-family: 'Space Grotesk'; opacity: 0.8; transition: 0.3s; }
+        nav a:hover { opacity: 1; color: var(--orange); }
+        .btn-nav { background: var(--orange); color: white !important; padding: 10px 20px; border-radius: 4px; opacity: 1 !important; }
+
+        /* HERO */
+        .hero { padding: 160px 0 100px; position: relative; }
+        .hero-text { max-width: 700px; }
+        .tag-line { color: var(--orange); font-weight: 800; font-size: 12px; letter-spacing: 3px; display: block; margin-bottom: 15px; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-family: 'Space Grotesk'; line-height: 1; margin-bottom: 30px; }
+        .hero h1 span { color: var(--orange); text-shadow: 0 0 20px var(--orange-glow); }
+        .hero p { color: var(--text-gray); font-size: 1.2rem; margin-bottom: 40px; max-width: 550px; }
+        .hero-btns { display: flex; gap: 20px; }
+        .btn-main { background: var(--orange); color: white; padding: 18px 40px; text-decoration: none; border-radius: 4px; font-weight: 700; transition: 0.3s; }
+        .btn-secondary { border: 1px solid rgba(255,255,255,0.2); color: white; padding: 18px 40px; text-decoration: none; border-radius: 4px; transition: 0.3s; }
+        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 10px 25px var(--orange-glow); }
+
+        /* STATS */
+        .stats-bar { background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255,255,255,0.05); padding: 50px 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
+        .stat-item h2 { font-size: 3.5rem; font-family: 'Space Grotesk'; color: var(--orange); }
+
+        /* SERVIÇOS CARDS */
+        .services { padding: 100px 0; }
+        .grid-modern { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: rgba(255,255,255,0.02); padding: 50px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; position: relative; }
+        .service-card:hover { border-color: var(--orange); transform: translateY(-10px); background: rgba(255,255,255,0.05); }
+        .service-card h3 { font-family: 'Space Grotesk'; font-size: 1.5rem; margin-bottom: 15px; color: var(--orange); }
+        .num-watermark { position: absolute; top: 10px; right: 20px; font-size: 4rem; font-weight: 800; color: rgba(255,255,255,0.02); }
+
+        /* PARCEIROS CARROSSEL */
+        .partners { padding: 50px 0; background: rgba(0,0,0,0.2); overflow: hidden; }
+        .slide-track { display: flex; width: calc(250px * 12); animation: scroll 30s linear infinite; }
+        .slide { width: 250px; text-align: center; font-weight: 800; color: rgba(255,255,255,0.1); font-size: 1.5rem; font-family: 'Space Grotesk'; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 6)); } }
+
+        /* AVALIAÇÕES */
+        .reviews { padding: 100px 0; }
+        .review-card { background: var(--navy-light); padding: 40px; border-radius: 8px; border-left: 4px solid var(--orange); }
+
+        /* FAQ (8 DÚVIDAS) */
+        .faq { padding: 100px 0; max-width: 800px; margin: 0 auto; }
+        details { background: rgba(255,255,255,0.02); margin-bottom: 15px; border-radius: 4px; }
+        summary { padding: 25px; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; border: 1px solid rgba(255,255,255,0.05); }
+        summary::after { content: '+'; color: var(--orange); }
+        details[open] summary { border-color: var(--orange); }
+        details p { padding: 25px; color: var(--text-gray); line-height: 1.6; }
+
+        /* WHATSAPP */
+        .whats-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2000; box-shadow: 0 10px 25px rgba(37,211,102,0.3); animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); } 70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+
+        footer { padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 40px; }
+            * { cursor: auto !important; } .cursor-dot, .cursor-outline { display: none; }
+        }
+    </style>
 </head>
 <body>
-    <a href="https://wa.me/5521972433725" class="whats-float" target="_blank" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+
+    <div class="bg-overlay"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <a href="https://wa.me/5521972433725" class="whats-btn" target="_blank">
+        <svg width="35" height="35" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
     <header id="main-header">
-        <div class="logo"><img src="imagens/logo.png" alt="Engplan Brasil"></div>
-        <nav>
-            <a href="#sobre">A Empresa</a>
-            <a href="#metodologia">Metodologia</a>
-            <a href="#servicos">Soluções</a>
-            <a href="#faq">Dúvidas</a>
-            <a href="https://wa.me/5521972433725" class="btn-whats">Fale Conosco</a>
-        </nav>
+        <div class="container header-container">
+            <div class="logo"><img src="logo.png" alt="Engplan Brasil"></div>
+            <nav>
+                <a href="#servicos">Projetos</a>
+                <a href="#servicos">Laudos</a>
+                <a href="#avaliacoes">Avaliações</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://wa.me/5521972433725" class="btn-nav">Consultoria</a>
+            </nav>
+        </div>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1 data-aos="fade-down" data-aos-duration="1200">O futuro se move com quem <span>planeja bem.</span></h1>
-            <p data-aos="fade-up" data-aos-delay="200">A Engplan Brasil acompanha cada etapa do seu projeto, garantindo qualidade e regularidade do início ao fim.</p>
-            <div class="hero-btns" data-aos="zoom-in" data-aos-delay="400">
-                <a href="#servicos" class="btn-primary">Nossos Serviços</a>
-                <a href="#contato" class="btn-secondary">Orçamento</a>
+        <div class="container">
+            <span class="tag-line">ESTRATÉGIA & ENGENHARIA</span>
+            <h1 data-aos="fade-up">Projetos, <span>Laudos</span> e Consultoria Técnica.</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Especialistas em Regularização, Gestão de Obras e Engenharia Diagnóstica. Transformamos complexidade em segurança jurídica.</p>
+            <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://wa.me/5521972433725" class="btn-main">Falar com Especialista</a>
+                <a href="#servicos" class="btn-secondary">Nossos Serviços</a>
             </div>
         </div>
     </section>
 
-    <div class="barra-autoridade">
-        <div class="auth-item" data-aos="fade-right" data-aos-delay="100"><svg viewBox="0 0 24 24"><path d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.86L12 5.84zM4.5 13v8h15v-8h-15zm13 6h-11v-4h11v4z"/></svg> GESTÃO TÉCNICA</div>
-        <div class="auth-item" data-aos="fade-up" data-aos-delay="200"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg> RIGOR NORMATIVO</div>
-        <div class="auth-item" data-aos="fade-left" data-aos-delay="300"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"/></svg> TRANSPARÊNCIA</div>
-    </div>
-
-    <section id="metodologia" class="metodologia-container">
-        <h2 class="section-title" data-aos="fade-up">Engenharia de Resultados</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-card" data-aos="flip-left" onclick="openModal('m1')">
-                <div class="card-tag">Planejamento</div>
-                <div class="card-img-wrapper"><img src="https://images.pexels.com/photos/3183191/pexels-photo-3183191.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Projetos e Gestão"></div>
-                <h3>Projetos e Gestão</h3>
-                <span class="btn-more">+ Ver Detalhes</span>
+    <section class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h2 class="counter" data-target="21">0</h2>
+                <p>Anos de Experiência</p>
             </div>
-            <div class="portfolio-card" data-aos="flip-left" data-aos-delay="200" onclick="openModal('m2')">
-                <div class="card-tag">Legalização</div>
-                <div class="card-img-wrapper"><img src="https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Laudos e Vistorias"></div>
-                <h3>Laudos e Vistorias</h3>
-                <span class="btn-more">+ Ver Detalhes</span>
+            <div class="stat-item">
+                <h2 class="counter" data-target="1500">0</h2>
+                <p>Laudos Emitidos</p>
             </div>
-            <div class="portfolio-card" data-aos="flip-left" data-aos-delay="400" onclick="openModal('m3')">
-                <div class="card-tag">Inovação</div>
-                <div class="card-img-wrapper"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=800" alt="Steel Frame"></div>
-                <h3>Steel Frame</h3>
-                <span class="btn-more">+ Ver Detalhes</span>
+            <div class="stat-item">
+                <h2 class="counter" data-target="100">0</h2>
+                <p>% Regularidade Técnica</p>
             </div>
         </div>
     </section>
 
-    <div id="m1" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('m1')">&times;</span>
-            <div class="modal-header-text">
-                <span class="modal-subtitle">Estratégia e Execução</span>
-                <h3>Projetos e Gestão</h3>
-            </div>
-            <div class="modal-body">
-                <p>Projetos executivos, planejamento e coordenação rigorosa para garantir que o papel se torne realidade com eficiência.</p>
-                <div class="modal-features">
-                    <div class="feature-item"><strong>Foco:</strong> Cumprimento de prazos e otimização de custos.</div>
-                    <div class="feature-item"><strong>Entrega:</strong> Gerenciamento completo da obra com suporte técnico.</div>
+    <section id="servicos" class="services">
+        <div class="container">
+            <div class="grid-modern">
+                <div class="service-card" data-aos="fade-up">
+                    <span class="num-watermark">01</span>
+                    <h3>Projetos & Regularização</h3>
+                    <p>Legalização de imóveis e projetos executivos de alta precisão em Steel Frame e Alvenaria.</p>
                 </div>
-                <a href="https://wa.me/5521972433725" class="btn-primary" style="margin-top:20px; display:block; text-align:center;">Consultar Gestão</a>
-            </div>
-        </div>
-    </div>
-
-    <div id="m2" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('m2')">&times;</span>
-            <div class="modal-header-text">
-                <span class="modal-subtitle">Conformidade Técnica</span>
-                <h3>Laudos e Perícias</h3>
-            </div>
-            <div class="modal-body">
-                <p>Laudos técnicos detalhados, vistorias cautelares e perícias que oferecem segurança jurídica e técnica para o seu patrimônio.</p>
-                <div class="modal-features">
-                    <div class="feature-item"><strong>Diferencial:</strong> Diagnósticos precisos baseados em normas vigentes.</div>
-                    <div class="feature-item"><strong>Aplicação:</strong> Condomínios, residências e áreas comerciais.</div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="num-watermark">02</span>
+                    <h3>Laudos & Vistorias</h3>
+                    <p>Engenharia diagnóstica, vistorias cautelares de vizinhança e perícias judiciais.</p>
                 </div>
-                <a href="https://wa.me/5521972433725" class="btn-primary" style="margin-top:20px; display:block; text-align:center;">Solicitar Laudo</a>
-            </div>
-        </div>
-    </div>
-
-    <div id="m3" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('m3')">&times;</span>
-            <div class="modal-header-text">
-                <span class="modal-subtitle">Construção a Seco</span>
-                <h3>Steel Frame</h3>
-            </div>
-            <div class="modal-body">
-                <p>Projetos e execução em estrutura metálica leve. Rapidez, sustentabilidade e precisão milimétrica na sua construção.</p>
-                <div class="modal-features">
-                    <div class="feature-item"><strong>Vantagens:</strong> Redução de resíduos e alto isolamento térmico/acústico.</div>
-                    <div class="feature-item"><strong>Experiência:</strong> Especialistas em montagem e cálculo estrutural específico.</div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="num-watermark">03</span>
+                    <h3>Gestão & Consultoria</h3>
+                    <p>Gestão físico-financeira e consultoria técnica para investidores e condomínios.</p>
                 </div>
-                <a href="https://wa.me/5521972433725" class="btn-primary" style="margin-top:20px; display:block; text-align:center;">Orçar Steel Frame</a>
             </div>
-        </div>
-    </div>
-
-    <section id="servicos" class="servicos-wrapper">
-        <h2 class="section-title" style="color: white; margin-bottom: 60px;">Soluções Engplan Brasil</h2>
-        <div class="servicos-grid">
-            <div class="card" data-aos="fade-up"><h3>Projetos</h3><p>Executivos, complementares e planejamento estruturado para sua obra.</p></div>
-            <div class="card" data-aos="fade-up" data-aos-delay="100"><h3>Gestão</h3><p>Acompanhamento técnico para garantir 100% de fidelidade ao cronograma.</p></div>
-            <div class="card" data-aos="fade-up" data-aos-delay="200"><h3>Laudos</h3><p>Vistorias e perícias com rigor científico para segurança e regularização.</p></div>
-            <div class="card" data-aos="fade-up" data-aos-delay="300"><h3>Regularização</h3><p>Aprovações e documentação completa junto aos órgãos competentes.</p></div>
-            <div class="card" data-aos="fade-up" data-aos-delay="400"><h3>Steel Frame</h3><p>Tecnologia de ponta em construção rápida e estruturalmente superior.</p></div>
-            <div class="card" data-aos="fade-up" data-aos-delay="500"><h3>Consultoria</h3><p>Suporte especializado para decisões estratégicas em engenharia.</p></div>
         </div>
     </section>
 
-    <section class="parcerias">
-        <div class="parcerias-container">
-            <span class="parcerias-titulo" data-aos="fade-up">Qualidade e Conformidade Técnica</span>
-            <div class="logos-grid" data-aos="fade-up" data-aos-delay="200">
-                <div class="logo-item" title="CREA-RJ">
-                    <img src="https://img.icons8.com/ios-filled/100/ffffff/engineering.png" alt="CREA">
-                    <span>CREA-RJ</span>
+    <section class="partners">
+        <div class="slide-track">
+            <div class="slide">CREA-RJ</div><div class="slide">ABNT</div><div class="slide">IBAPE</div><div class="slide">CAU-RJ</div><div class="slide">SINDICON</div><div class="slide">STEEL-BR</div>
+            <div class="slide">CREA-RJ</div><div class="slide">ABNT</div><div class="slide">IBAPE</div><div class="slide">CAU-RJ</div><div class="slide">SINDICON</div><div class="slide">STEEL-BR</div>
+        </div>
+    </section>
+
+    <section id="avaliacoes" class="reviews">
+        <div class="container">
+            <h2 style="font-family:'Space Grotesk'; margin-bottom:50px; text-align:center;">Depoimentos de <span>Sucesso</span></h2>
+            <div class="grid-modern">
+                <div class="review-card" data-aos="fade-right">
+                    <p>"A Engplan entregou o laudo de autovistoria do nosso condomínio com uma clareza técnica que nunca tínhamos visto."</p>
+                    <strong style="display:block; margin-top:15px; color:var(--orange);">Condomínio Residencial Park</strong>
                 </div>
-                <div class="logo-item" title="ABNT">
-                    <img src="https://img.icons8.com/ios-filled/100/ffffff/guarantee.png" alt="ABNT">
-                    <span>ABNT</span>
-                </div>
-                <div class="logo-item" title="CAU-RJ">
-                    <img src="https://img.icons8.com/ios-filled/100/ffffff/architecture.png" alt="CAU">
-                    <span>CAU-RJ</span>
-                </div>
-                <div class="logo-item" title="BIM">
-                    <img src="https://img.icons8.com/ios-filled/100/ffffff/3d-model.png" alt="BIM">
-                    <span>BIM TECH</span>
+                <div class="review-card" data-aos="fade-left">
+                    <p>"Excelente consultoria para nossa obra em Steel Frame. Reduziram nosso desperdício em 15%."</p>
+                    <strong style="display:block; margin-top:15px; color:var(--orange);">Eng. Ricardo Oliveira</strong>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <h2 style="font-family:'Space Grotesk'; text-align:center; margin-bottom:50px;">Perguntas <span>Frequentes</span></h2>
+        <div class="accordion">
+            <details><summary>Quais tipos de laudos a Engplan emite?</summary><p>Emitimos Laudos de Autovistoria Predial, Vistoria Cautelar de Vizinhança, Laudos de Reformas (NBR 16280) e Perícias Estruturais.</p></details>
+            <details><summary>Como funciona a regularização de imóveis?</summary><p>Analisamos a situação junto à prefeitura e órgãos competentes, elaboramos o projeto 'As Built' e conduzimos todo o processo de Habite-se.</p></details>
+            <details><summary>A Engplan atua em obras de Steel Frame?</summary><p>Sim, somos especialistas em projetos e consultoria para sistemas industrializados, garantindo máxima eficiência térmica e rapidez.</p></details>
+            <details><summary>O que é a Vistoria Cautelar de Vizinhança?</summary><p>É um laudo realizado antes do início de uma obra para registrar o estado das casas vizinhas, protegendo o construtor de cobranças indevidas.</p></details>
+            <details><summary>A consultoria técnica ajuda na redução de custos?</summary><p>Sim. Através da gestão rigorosa e planejamento técnico, evitamos retrabalhos e compras desnecessárias de materiais.</p></details>
+            <details><summary>Vocês atendem condomínios comerciais?</summary><p>Atendemos condomínios residenciais e comerciais com foco em manutenção preventiva e engenharia diagnóstica.</p></details>
+            <details><summary>Qual a validade de um laudo de autovistoria no RJ?</summary><p>A autovistoria predial deve ser renovada a cada 5 anos, conforme a legislação vigente.</p></details>
+            <details><summary>Como solicitar um orçamento de consultoria?</summary><p>Basta clicar no botão de WhatsApp. Nossa equipe técnica fará uma triagem inicial e agendará uma visita se necessário.</p></details>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Engplan Brasil | Rio de Janeiro - RJ | @engplanbrasil</p>
+        <div class="container">
+            <img src="logo.png" width="130" alt="Engplan Brasil">
+            <p style="margin-top:20px; color:var(--text-gray);">@engplanbrasil | Rio de Janeiro - RJ</p>
+            <p style="margin-top:10px; font-size:12px; opacity:0.5;">© 2026 Engplan Brasil - Padrão Absoluto</p>
+        </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="js/scripts.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Contadores Animados
+        const counters = document.querySelectorAll('.counter');
+        const observer = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting) {
+                counters.forEach(c => {
+                    const update = () => {
+                        const target = +c.getAttribute('data-target');
+                        const count = +c.innerText;
+                        if (count < target) {
+                            c.innerText = Math.ceil(count + (target/50));
+                            setTimeout(update, 40);
+                        } else c.innerText = target;
+                    }; update();
+                });
+            }
+        }, { threshold: 0.5 });
+        observer.observe(document.querySelector('.stats-bar'));
+
+        // Cursor Tracker
+        const dot = document.querySelector('.cursor-dot');
+        const out = document.querySelector('.cursor-outline');
+        window.addEventListener('mousemove', (e) => {
+            dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+            out.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 500, fill: "forwards" });
+        });
+    </script>
 </body>
 </html>
